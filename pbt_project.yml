@@ -1,0 +1,112 @@
+name: Financial_Crimes
+description: Combine wire transfers and various watchlists and enrich with rules to
+  calculate a risk score to identify potentially nefarious transactions
+version: 0.0.1
+author: bobw@prophecy.io
+language: python
+buildSystem: ''
+buildSystemDetails:
+  artefactID: financialcrimes
+  parentArtefactID: bobwprophecyioteam
+  buildSystem: wheel
+  author: null
+  createdAt: '2024-02-14 17:00:07'
+pipelines:
+  pipelines/pipe_financial_crimes:
+    name: pipe_financial_crimes
+    description: See project description
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-02-14 17:00:07'
+    datasets:
+      inputs:
+      - datasets/ds_country_watchlist
+      - datasets/ds_person_watchlist
+      - datasets/ds_wire_transfers
+      outputs: []
+    subgraphs: []
+    dependencies: {}
+datasets:
+  datasets/ds_wire_transfers:
+    name: ds_wire_transfers
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-14 17:32:42'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-14 17:32:42'
+  datasets/ds_person_watchlist:
+    name: ds_person_watchlist
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-14 17:37:29'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-14 17:37:29'
+  datasets/ds_country_watchlist:
+    name: ds_country_watchlist
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-14 17:39:36'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-14 17:39:36'
+templates: {}
+jobs: {}
+gemContainer:
+  languageVersion: '3.10'
+  gemLibsVersion: 1.3.4.0
+  gems: {}
+  dependencies: null
+functions:
+  author: null
+  createdAt: '2024-02-14 17:00:07'
+  udfs: {}
+  udafs: {}
+  expressions: {}
+  airflowFunctions: {}
+subgraphs: {}
+sqlModels: {}
+sqlMacros: {}
+sqlSeeds: {}
+sqlSources: {}
+sqlUnreferencedSources: {}
+sqlPipeline: null
+dependencies: '[]'
+projectDependencies:
+  '12654':
+    projectUID: 12654
+    projectName: ProphecySparkBasicsPython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
+    version: 0.2.3
+    isDefault: true
+    author: null
+    createdAt: '2024-02-14 16:59:15'
+  '12655':
+    projectUID: 12655
+    projectName: ProphecyWarehousePython
+    repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=
+    version: 0.0.2
+    isDefault: true
+    author: null
+    createdAt: '2024-02-14 16:59:15'
+flags:
+  shouldAddDefaultDependenciesIfAbsent: true
+pipelineConfigurations: {}

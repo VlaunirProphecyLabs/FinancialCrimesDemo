@@ -1,0 +1,22 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: country
+    type: string
+    nullable: true
+    metadata:
+      description: Name of the country that is being monitored. This column stores
+        values of string data type and provides information about the country that
+        is being watched for any potential issues or concerns.
+      mappings: []
+      tags: []
+  - name: issue
+    type: string
+    nullable: true
+    metadata:
+      description: Describes the specific issue or concern related to a particular
+        country. The values in this column are of string data type and provide information
+        on the reason why a country is on the watchlist.
+      mappings: []
+      tags: []
