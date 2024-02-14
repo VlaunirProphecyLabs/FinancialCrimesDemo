@@ -2,23 +2,13 @@ version: 1
 schema:
   type: struct
   fields:
-  - name: first_name
+  - name: full_name
     type: string
     nullable: true
     metadata:
-      description: The first name of an individual on the watchlist. This column stores
-        string values and is used to identify individuals who may be of interest to
-        law enforcement or security personnel.
-      mappings: []
-      tags: []
-  - name: last_name
-    type: string
-    nullable: true
-    metadata:
-      description: The last name of an individual on the watchlist. It stores the
-        family name of each person and the values in this column are of string data
-        type. This column can be used to identify individuals who may pose a potential
-        threat or risk.
+      description: The complete name of an individual on the watchlist. This column
+        stores the first name and last name of each person and is of string data type.
+        It provides a way to uniquely identify each person on the watchlist.
       mappings: []
       tags: []
   - name: reason
@@ -27,6 +17,7 @@ schema:
     metadata:
       description: The reason for an individual being on the watchlist. It stores
         a string value that provides information about why the person is being monitored.
-        This column is useful for tracking potential risks or threats.
+        This column is used to track potential risks or threats associated with each
+        individual on the watchlist.
       mappings: []
       tags: []

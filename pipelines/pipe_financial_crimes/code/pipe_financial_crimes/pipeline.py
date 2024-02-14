@@ -7,11 +7,29 @@ from prophecy.utils import *
 from pipe_financial_crimes.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    df_ds_wire_transfers = ds_wire_transfers(spark)
-    df_Reformat_1 = Reformat_1(spark, df_ds_wire_transfers)
-    df_Join_1 = Join_1(spark, df_Reformat_1)
     df_ds_person_watchlist = ds_person_watchlist(spark)
-    df_ds_country_watchlist = ds_country_watchlist(spark)
+    df_ds_wire_transfers = ds_wire_transfers(spark)
+    df_reformatted_transactions = reformatted_transactions(spark, df_ds_wire_transfers)
+    df_transaction_full_name_reason = transaction_full_name_reason(
+        spark, 
+        df_reformatted_transactions, 
+        df_ds_person_watchlist
+    )
+    df_ds_country_watchlist_src = ds_country_watchlist_src(spark)
+    df_transaction_details_with_country_info = transaction_details_with_country_info(
+        spark, 
+        df_transaction_full_name_reason, 
+        df_ds_country_watchlist_src
+    )
+    df_ds_country_watchlist_tar = ds_country_watchlist_tar(spark)
+    df_international_transactions_join = international_transactions_join(
+        spark, 
+        df_transaction_details_with_country_info, 
+        df_ds_country_watchlist_tar
+    )
+    df_risk_flags = risk_flags(spark, df_international_transactions_join)
+    df_risk_score = risk_score(spark, df_risk_flags)
+    df_sort_risk_score = sort_risk_score(spark, df_risk_score)
 
 def main():
     spark = SparkSession.builder\

@@ -42,19 +42,6 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-02-14 17:32:42'
-  datasets/ds_person_watchlist:
-    name: ds_person_watchlist
-    description: ''
-    author: bobw@prophecy.io
-    createdAt: '2024-02-14 17:37:29'
-    mode: batch
-    physicalDatasets:
-      Databricks-Prophecy:
-        fabricId: 9631
-        datasetType: File
-        description: ''
-        author: bobw@prophecy.io
-        createdAt: '2024-02-14 17:37:29'
   datasets/ds_country_watchlist:
     name: ds_country_watchlist
     description: ''
@@ -68,6 +55,19 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-02-14 17:39:36'
+  datasets/ds_person_watchlist:
+    name: ds_person_watchlist
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-14 18:36:45'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-14 18:36:45'
 templates: {}
 jobs: {}
 gemContainer:

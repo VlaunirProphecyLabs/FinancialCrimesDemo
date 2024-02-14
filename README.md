@@ -1,1 +1,16 @@
-# Financial_Crimes Repository
+## Pipelines
+
+### pipe_financial_crimes
+
+The **pipe_financial_crimes** pipeline is described in the project description.
+## Datasets
+
+1. **ds_country_watchlist**
+This dataset contains a list of countries and their associated issues that require monitoring. The data is not stored in any particular format and can be accessed through various means. This dataset is useful for tracking global events and identifying potential risks or opportunities in different regions. It can be used by analysts, researchers, and policymakers to make informed decisions and take appropriate actions.
+
+2. **ds_person_watchlist**
+This dataset contains a list of individuals who are being monitored for specific reasons. It includes their first and last names, as well as the reason for their inclusion in the watchlist. This data is useful for security and law enforcement purposes, as it allows for the identification and tracking of individuals who may pose a potential threat. However, it is important to handle this data with care and ensure that privacy and civil liberties are respected.
+
+3. **ds_wire_transfers**
+This dataset contains information on wire transfers, including transaction IDs, first and last names of the sender and recipient, bank details of both parties, originating and destination countries, and transaction amounts. The dataset is currently in an unspecified format. This data is useful for analyzing international money transfers, detecting fraudulent activities, and monitoring financial transactions. It can also be used to gain insights into customer behavior and preferences.
+
