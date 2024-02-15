@@ -25,7 +25,9 @@ pipelines:
       - datasets/ds_country_watchlist
       - datasets/ds_person_watchlist
       - datasets/ds_wire_transfers
-      outputs: []
+      outputs:
+      - datasets/all_scored_transx
+      - datasets/flagged_transactions
     subgraphs: []
     dependencies: {}
 datasets:
@@ -68,6 +70,32 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-02-14 18:36:45'
+  datasets/flagged_transactions:
+    name: flagged_transactions
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-15 21:02:29'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-15 21:02:29'
+  datasets/all_scored_transx:
+    name: all_scored_transx
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-15 21:11:31'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-15 21:11:31'
 templates: {}
 jobs: {}
 gemContainer:

@@ -30,6 +30,9 @@ def pipeline(spark: SparkSession) -> None:
     df_risk_flags = risk_flags(spark, df_international_transactions_join)
     df_risk_score = risk_score(spark, df_risk_flags)
     df_sort_risk_score = sort_risk_score(spark, df_risk_score)
+    df_flagged_transx = flagged_transx(spark, df_sort_risk_score)
+    t_flagged_transx(spark, df_flagged_transx)
+    t_all_transx(spark, df_sort_risk_score)
 
 def main():
     spark = SparkSession.builder\
