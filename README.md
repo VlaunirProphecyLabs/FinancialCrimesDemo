@@ -2,7 +2,11 @@
 
 ### pipe_financial_crimes
 
-The **pipe_financial_crimes** pipeline is described in the project description.
+## 
+![fin_crimes_flow](https://github.com/BobProphecy/images/blob/main/fincrimesflow.jpg?raw=true)
+
+The **pipe_financial_crimes** Combine wire transfers and various watchlists and enrich with rules to calculate a risk score to identify potentially nefarious transactions.
+
 ## Datasets
 
 1. **ds_person_watchlist**

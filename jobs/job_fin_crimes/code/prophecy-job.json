@@ -1,0 +1,89 @@
+{
+  "metainfo" : {
+    "type" : "Databricks",
+    "fabricId" : "9631",
+    "jobId" : "jobs/job_fin_crimes",
+    "name" : "job_fin_crimes",
+    "schedule" : "0 0 0 1 1 ? *",
+    "scheduleTimeZone" : "UTC",
+    "jobClusterMode" : {
+      "clusterMode" : "Single"
+    },
+    "enabled" : false,
+    "defaultClusterSize" : "small",
+    "alerting" : {
+      "emails" : "bobw@prophecy.io",
+      "onStart" : false,
+      "onSuccess" : true,
+      "onFailure" : true
+    },
+    "maxConcurrentRuns" : 1,
+    "processDefaultSettings" : {
+      "type" : "Inherited",
+      "retries" : 0,
+      "alerting" : {
+        "emails" : "",
+        "onStart" : false,
+        "onSuccess" : false,
+        "onFailure" : false
+      }
+    },
+    "availableFabrics" : [ {
+      "id" : "9631",
+      "name" : "Databricks-Prophecy",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
+    } ]
+  },
+  "processes" : {
+    "cRarHqCe2yVB_cLMZ2HGU$$UW2jJKFyS9nD8CZWo_4mO" : {
+      "id" : "cRarHqCe2yVB_cLMZ2HGU$$UW2jJKFyS9nD8CZWo_4mO",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "pipe_financial_crimes",
+        "slug" : "pipe_financial_crimes",
+        "x" : -760,
+        "y" : -340
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "SkObBfLFDNWFAlZknttV6$$k9emWQqKRR4AMVqVl7lPO",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "koW1nr8mdqzsApC9jmndQ$$D5_w8OPLeC-CjUYkgmmn3",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/pipe_financial_crimes",
+        "configurations" : {
+          "schema" : [ ],
+          "instances" : {
+            "Financial_Crimes" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    }
+  },
+  "connections" : [ ]
+}
