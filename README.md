@@ -3,7 +3,7 @@
 ### pipe_financial_crimes
 
 ## 
-![fin_crimes_flow](https://github.com/BobProphecy/images/blob/main/fincrimesflow.jpg?raw=true)
+![fin_crimes_flow](https://github.com/BobProphecy/images/blob/main/FinCrimesExec.jpg?raw=true)
 
 The **pipe_financial_crimes** Combine wire transfers and various watchlists and enrich with rules to calculate a risk score to identify potentially nefarious transactions.
 
