@@ -7,8 +7,8 @@ from prophecy.utils import *
 from simple_pipeline.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    df_table_wire_transfer = table_wire_transfer(spark)
-    df_reformatted_transactions = reformatted_transactions(spark, df_table_wire_transfer)
+    df_ds_wire_transfers = ds_wire_transfers(spark)
+    df_reformatted_transactions = reformatted_transactions(spark, df_ds_wire_transfers)
     df_ds_person_watchlist = ds_person_watchlist(spark)
     df_left_join_by_full_name = left_join_by_full_name(spark, df_reformatted_transactions, df_ds_person_watchlist)
     df_ds_country_watchlist = ds_country_watchlist(spark)

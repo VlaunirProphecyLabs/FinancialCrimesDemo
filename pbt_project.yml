@@ -44,7 +44,7 @@ pipelines:
       inputs:
       - datasets/ds_country_watchlist
       - datasets/ds_person_watchlist
-      - datasets/table_wire_transfer
+      - datasets/ds_wire_transfers
       outputs:
       - datasets/all
       - datasets/flagged

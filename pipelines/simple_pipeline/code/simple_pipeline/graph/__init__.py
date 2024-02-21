@@ -1,6 +1,6 @@
 from .reformatted_transactions_1 import reformatted_transactions_1
+from .ds_wire_transfers import ds_wire_transfers
 from .filter_by_risk_score import filter_by_risk_score
-from .table_wire_transfer import table_wire_transfer
 from .ds_person_watchlist import ds_person_watchlist
 from .All import All
 from .ds_country_watchlist import ds_country_watchlist

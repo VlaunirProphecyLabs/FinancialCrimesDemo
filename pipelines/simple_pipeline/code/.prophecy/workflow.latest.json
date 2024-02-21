@@ -63,12 +63,6 @@
     "configurationVersion" : "v1"
   },
   "connections" : [ {
-    "id" : "CMqhoumDlRU5DgLPdWKXm$$Q3gZq9-idCM49Pr3Ugei-",
-    "source" : "23GWcA0NnbeOr2odDNpZ6$$xIiJmb58fQ4ZsGdNIoM9u",
-    "sourcePort" : "LYBsyLaN1z3ISocGLX-3D$$2JObn6Dq9YlIuPgXpQmiS",
-    "target" : "9VgstlWQypnzc0Y0iyj-1$$pB8VVvDcmHtJb44Do48RO",
-    "targetPort" : "3Fd0ka5CMzpdPsEhZIGXk$$oKiOxaCEWVjXSGk3tj3ha"
-  }, {
     "id" : "f5ikZF3nVEuym9VQQxDQe$$gqQrSBJ2cw7iHNzZ7OPD8",
     "source" : "9VgstlWQypnzc0Y0iyj-1$$pB8VVvDcmHtJb44Do48RO",
     "sourcePort" : "THZrLgAIjmOPRdp7X3aLz$$3pMy6QFbFNX4U81NqXirH",
@@ -128,6 +122,12 @@
     "sourcePort" : "HyXz25C-twZZ3ty-uUvIj$$sQo3MPeqY21eGUu0yHGi2",
     "target" : "4DNZAR8A1S9_xhqhYtyIW$$k44trhUScevYkkUgzQ-kv",
     "targetPort" : "jH5UNBcKCE3pORgV7Ll4y$$0BjwP-oqAZzJcn--K05PJ"
+  }, {
+    "id" : "g8Ww97zU1v6W2PDgAJdjr",
+    "source" : "NR-LK2Hfr5dTlladp27yT$$A9L10M8x5yajsL8l1h9kc",
+    "sourcePort" : "RD9s_O1Sb0sbiaIxkq6t6$$oqubnrC7W04irqSaS_26n",
+    "target" : "9VgstlWQypnzc0Y0iyj-1$$pB8VVvDcmHtJb44Do48RO",
+    "targetPort" : "3Fd0ka5CMzpdPsEhZIGXk$$oKiOxaCEWVjXSGk3tj3ha"
   } ],
   "processes" : {
     "UTIPnrLOXVd-S7nE6xjTq$$uwMKM7_ZdkkyEh9RKpP1J" : {
@@ -151,10 +151,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "transaction_id",
-              "type" : "long",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each wire transfer transaction.",
+                "description" : "A unique identifier for each wire transfer transaction. It stores alphanumeric values in string data type, providing a way to track and identify individual transactions within the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -172,7 +172,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank from which the wire transfer originates.",
+                "description" : "The name of the bank from which the wire transfer was initiated. This column stores string values and provides information about the financial institution that the sender used to transfer funds.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -181,7 +181,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "description" : "The account number from which the wire transfer was initiated. It stores a string value that uniquely identifies the account from which the transfer was made. This column provides information about the source of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -190,7 +190,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank to which the wire transfer is sent.",
+                "description" : "The name of the bank where the wire transfer was received. This column stores string values and provides information about the destination of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -199,7 +199,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "description" : "The account number of the recipient of the wire transfer. It stores a string value that uniquely identifies the bank account of the recipient. This column is important for tracking the destination of the funds transferred.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -208,7 +208,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country from which the wire transfer originates.",
+                "description" : "The country from which the wire transfer originated. This column stores values of string data type and provides information about the location of the sender of the wire transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -217,7 +217,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country to which the wire transfer is sent.",
+                "description" : "The country where the wire transfer was received. This column stores values in string data type and provides information about the destination of the transaction. It can be used to analyze the geographical distribution of wire transfers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -226,7 +226,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "The monetary value of the wire transfer transaction.",
+                "description" : "Stores the amount of money transferred in each transaction. It is represented by numerical values in integer data type, indicating the monetary value of each transaction. This column provides information about the financial activity of the customers and the volume of money transferred between banks.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -404,13 +404,13 @@
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
-    "23GWcA0NnbeOr2odDNpZ6$$xIiJmb58fQ4ZsGdNIoM9u" : {
-      "id" : "23GWcA0NnbeOr2odDNpZ6$$xIiJmb58fQ4ZsGdNIoM9u",
+    "NR-LK2Hfr5dTlladp27yT$$A9L10M8x5yajsL8l1h9kc" : {
+      "id" : "NR-LK2Hfr5dTlladp27yT$$A9L10M8x5yajsL8l1h9kc",
       "component" : "Source",
       "metadata" : {
-        "label" : "table_wire_transfer",
-        "slug" : "table_wire_transfer",
-        "x" : -720,
+        "label" : "ds_wire_transfers",
+        "slug" : "ds_wire_transfers",
+        "x" : -700,
         "y" : -220,
         "phase" : 0,
         "cache" : false,
@@ -420,7 +420,7 @@
       "ports" : {
         "inputs" : [ ],
         "outputs" : [ {
-          "id" : "LYBsyLaN1z3ISocGLX-3D$$2JObn6Dq9YlIuPgXpQmiS",
+          "id" : "RD9s_O1Sb0sbiaIxkq6t6$$oqubnrC7W04irqSaS_26n",
           "slug" : "out"
         } ],
         "selectedInputFields" : [ ],
@@ -428,7 +428,7 @@
         "autoUpdateOnRun" : false
       },
       "properties" : {
-        "datasetId" : "datasets/table_wire_transfer"
+        "datasetId" : "datasets/ds_wire_transfers"
       }
     },
     "Jk5oq4rTvICV64M56RrY2$$hDpikpEqCPq4hy87nbbig" : {
@@ -479,10 +479,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "transaction_id",
-              "type" : "long",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each wire transfer transaction.",
+                "description" : "A unique identifier for each wire transfer transaction. It stores alphanumeric values in string data type, providing a way to track and identify individual transactions within the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -491,7 +491,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "First name of the sender of the wire transfer.",
+                "description" : "The first name of the individual involved in the wire transfer transaction. It stores the first name of the customer as a string data type, providing a way to identify the person initiating or receiving the transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -500,7 +500,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Last name of the sender or of the wire transfer.",
+                "description" : "The last name of an individual. It stores the family name of each customer and is of string data type. This column provides a way to group customers based on their family name and can be used for analysis and reporting purposes.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -509,7 +509,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank from which the wire transfer originates.",
+                "description" : "The name of the bank from which the wire transfer was initiated. This column stores string values and provides information about the financial institution that the sender used to transfer funds.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -518,7 +518,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "description" : "The account number from which the wire transfer was initiated. It stores a string value that uniquely identifies the account from which the transfer was made. This column provides information about the source of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -527,7 +527,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank to which the wire transfer is sent.",
+                "description" : "The name of the bank where the wire transfer was received. This column stores string values and provides information about the destination of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -536,7 +536,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "description" : "The account number of the recipient of the wire transfer. It stores a string value that uniquely identifies the bank account of the recipient. This column is important for tracking the destination of the funds transferred.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -545,7 +545,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country from which the wire transfer originates.",
+                "description" : "The country from which the wire transfer originated. This column stores values of string data type and provides information about the location of the sender of the wire transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -554,7 +554,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country to which the wire transfer is sent.",
+                "description" : "The country where the wire transfer was received. This column stores values in string data type and provides information about the destination of the transaction. It can be used to analyze the geographical distribution of wire transfers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -563,7 +563,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "The monetary value of the wire transfer transaction.",
+                "description" : "Stores the amount of money transferred in each transaction. It is represented by numerical values in integer data type, indicating the monetary value of each transaction. This column provides information about the financial activity of the customers and the volume of money transferred between banks.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -675,10 +675,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "transaction_id",
-              "type" : "long",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each wire transfer transaction.",
+                "description" : "A unique identifier for each wire transfer transaction. It stores alphanumeric values in string data type, providing a way to track and identify individual transactions within the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -696,7 +696,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank from which the wire transfer originates.",
+                "description" : "The name of the bank from which the wire transfer was initiated. This column stores string values and provides information about the financial institution that the sender used to transfer funds.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -705,7 +705,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "description" : "The account number from which the wire transfer was initiated. It stores a string value that uniquely identifies the account from which the transfer was made. This column provides information about the source of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -714,7 +714,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank to which the wire transfer is sent.",
+                "description" : "The name of the bank where the wire transfer was received. This column stores string values and provides information about the destination of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -723,7 +723,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "description" : "The account number of the recipient of the wire transfer. It stores a string value that uniquely identifies the bank account of the recipient. This column is important for tracking the destination of the funds transferred.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -732,7 +732,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country from which the wire transfer originates.",
+                "description" : "The country from which the wire transfer originated. This column stores values of string data type and provides information about the location of the sender of the wire transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -741,7 +741,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country to which the wire transfer is sent.",
+                "description" : "The country where the wire transfer was received. This column stores values in string data type and provides information about the destination of the transaction. It can be used to analyze the geographical distribution of wire transfers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -750,7 +750,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "The monetary value of the wire transfer transaction.",
+                "description" : "Stores the amount of money transferred in each transaction. It is represented by numerical values in integer data type, indicating the monetary value of each transaction. This column provides information about the financial activity of the customers and the volume of money transferred between banks.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -856,10 +856,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "transaction_id",
-              "type" : "long",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each wire transfer transaction.",
+                "description" : "A unique identifier for each wire transfer transaction. It stores alphanumeric values in string data type, providing a way to track and identify individual transactions within the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -877,7 +877,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank from which the wire transfer originates.",
+                "description" : "The name of the bank from which the wire transfer was initiated. This column stores string values and provides information about the financial institution that the sender used to transfer funds.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -886,7 +886,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "description" : "The account number from which the wire transfer was initiated. It stores a string value that uniquely identifies the account from which the transfer was made. This column provides information about the source of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -895,7 +895,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank to which the wire transfer is sent.",
+                "description" : "The name of the bank where the wire transfer was received. This column stores string values and provides information about the destination of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -904,7 +904,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "description" : "The account number of the recipient of the wire transfer. It stores a string value that uniquely identifies the bank account of the recipient. This column is important for tracking the destination of the funds transferred.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -913,7 +913,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country from which the wire transfer originates.",
+                "description" : "The country from which the wire transfer originated. This column stores values of string data type and provides information about the location of the sender of the wire transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -922,7 +922,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country to which the wire transfer is sent.",
+                "description" : "The country where the wire transfer was received. This column stores values in string data type and provides information about the destination of the transaction. It can be used to analyze the geographical distribution of wire transfers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -931,7 +931,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "The monetary value of the wire transfer transaction.",
+                "description" : "Stores the amount of money transferred in each transaction. It is represented by numerical values in integer data type, indicating the monetary value of each transaction. This column provides information about the financial activity of the customers and the volume of money transferred between banks.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1107,10 +1107,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "transaction_id",
-              "type" : "long",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each wire transfer transaction.",
+                "description" : "A unique identifier for each wire transfer transaction. It stores alphanumeric values in string data type, providing a way to track and identify individual transactions within the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1128,7 +1128,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank from which the wire transfer originates.",
+                "description" : "The name of the bank from which the wire transfer was initiated. This column stores string values and provides information about the financial institution that the sender used to transfer funds.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1137,7 +1137,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "description" : "The account number from which the wire transfer was initiated. It stores a string value that uniquely identifies the account from which the transfer was made. This column provides information about the source of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1146,7 +1146,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank to which the wire transfer is sent.",
+                "description" : "The name of the bank where the wire transfer was received. This column stores string values and provides information about the destination of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1155,7 +1155,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "description" : "The account number of the recipient of the wire transfer. It stores a string value that uniquely identifies the bank account of the recipient. This column is important for tracking the destination of the funds transferred.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1164,7 +1164,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country from which the wire transfer originates.",
+                "description" : "The country from which the wire transfer originated. This column stores values of string data type and provides information about the location of the sender of the wire transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1173,7 +1173,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country to which the wire transfer is sent.",
+                "description" : "The country where the wire transfer was received. This column stores values in string data type and provides information about the destination of the transaction. It can be used to analyze the geographical distribution of wire transfers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1182,7 +1182,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "The monetary value of the wire transfer transaction.",
+                "description" : "Stores the amount of money transferred in each transaction. It is represented by numerical values in integer data type, indicating the monetary value of each transaction. This column provides information about the financial activity of the customers and the volume of money transferred between banks.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1274,10 +1274,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "transaction_id",
-              "type" : "long",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each wire transfer transaction.",
+                "description" : "A unique identifier for each wire transfer transaction. It stores alphanumeric values in string data type, providing a way to track and identify individual transactions within the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1295,7 +1295,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank from which the wire transfer originates.",
+                "description" : "The name of the bank from which the wire transfer was initiated. This column stores string values and provides information about the financial institution that the sender used to transfer funds.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1304,7 +1304,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "description" : "The account number from which the wire transfer was initiated. It stores a string value that uniquely identifies the account from which the transfer was made. This column provides information about the source of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1313,7 +1313,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank to which the wire transfer is sent.",
+                "description" : "The name of the bank where the wire transfer was received. This column stores string values and provides information about the destination of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1322,7 +1322,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "description" : "The account number of the recipient of the wire transfer. It stores a string value that uniquely identifies the bank account of the recipient. This column is important for tracking the destination of the funds transferred.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1331,7 +1331,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country from which the wire transfer originates.",
+                "description" : "The country from which the wire transfer originated. This column stores values of string data type and provides information about the location of the sender of the wire transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1340,7 +1340,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country to which the wire transfer is sent.",
+                "description" : "The country where the wire transfer was received. This column stores values in string data type and provides information about the destination of the transaction. It can be used to analyze the geographical distribution of wire transfers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1349,7 +1349,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "The monetary value of the wire transfer transaction.",
+                "description" : "Stores the amount of money transferred in each transaction. It is represented by numerical values in integer data type, indicating the monetary value of each transaction. This column provides information about the financial activity of the customers and the volume of money transferred between banks.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1452,10 +1452,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "transaction_id",
-              "type" : "long",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each wire transfer transaction.",
+                "description" : "A unique identifier for each wire transfer transaction. It stores alphanumeric values in string data type, providing a way to track and identify individual transactions within the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1473,7 +1473,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank from which the wire transfer originates.",
+                "description" : "The name of the bank from which the wire transfer was initiated. This column stores string values and provides information about the financial institution that the sender used to transfer funds.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1482,7 +1482,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "description" : "The account number from which the wire transfer was initiated. It stores a string value that uniquely identifies the account from which the transfer was made. This column provides information about the source of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1491,7 +1491,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank to which the wire transfer is sent.",
+                "description" : "The name of the bank where the wire transfer was received. This column stores string values and provides information about the destination of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1500,7 +1500,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "description" : "The account number of the recipient of the wire transfer. It stores a string value that uniquely identifies the bank account of the recipient. This column is important for tracking the destination of the funds transferred.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1509,7 +1509,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country from which the wire transfer originates.",
+                "description" : "The country from which the wire transfer originated. This column stores values of string data type and provides information about the location of the sender of the wire transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1518,7 +1518,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country to which the wire transfer is sent.",
+                "description" : "The country where the wire transfer was received. This column stores values in string data type and provides information about the destination of the transaction. It can be used to analyze the geographical distribution of wire transfers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1527,7 +1527,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "The monetary value of the wire transfer transaction.",
+                "description" : "Stores the amount of money transferred in each transaction. It is represented by numerical values in integer data type, indicating the monetary value of each transaction. This column provides information about the financial activity of the customers and the volume of money transferred between banks.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1692,10 +1692,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "transaction_id",
-              "type" : "long",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each wire transfer transaction.",
+                "description" : "A unique identifier for each wire transfer transaction. It stores alphanumeric values in string data type, providing a way to track and identify individual transactions within the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1713,7 +1713,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank from which the wire transfer originates.",
+                "description" : "The name of the bank from which the wire transfer was initiated. This column stores string values and provides information about the financial institution that the sender used to transfer funds.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1722,7 +1722,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "description" : "The account number from which the wire transfer was initiated. It stores a string value that uniquely identifies the account from which the transfer was made. This column provides information about the source of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1731,7 +1731,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank to which the wire transfer is sent.",
+                "description" : "The name of the bank where the wire transfer was received. This column stores string values and provides information about the destination of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1740,7 +1740,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "description" : "The account number of the recipient of the wire transfer. It stores a string value that uniquely identifies the bank account of the recipient. This column is important for tracking the destination of the funds transferred.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1749,7 +1749,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country from which the wire transfer originates.",
+                "description" : "The country from which the wire transfer originated. This column stores values of string data type and provides information about the location of the sender of the wire transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1758,7 +1758,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country to which the wire transfer is sent.",
+                "description" : "The country where the wire transfer was received. This column stores values in string data type and provides information about the destination of the transaction. It can be used to analyze the geographical distribution of wire transfers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1767,7 +1767,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "The monetary value of the wire transfer transaction.",
+                "description" : "Stores the amount of money transferred in each transaction. It is represented by numerical values in integer data type, indicating the monetary value of each transaction. This column provides information about the financial activity of the customers and the volume of money transferred between banks.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1886,10 +1886,10 @@
             "type" : "struct",
             "fields" : [ {
               "name" : "transaction_id",
-              "type" : "long",
+              "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Unique identifier for each wire transfer transaction.",
+                "description" : "A unique identifier for each wire transfer transaction. It stores alphanumeric values in string data type, providing a way to track and identify individual transactions within the dataset.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1907,7 +1907,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank from which the wire transfer originates.",
+                "description" : "The name of the bank from which the wire transfer was initiated. This column stores string values and provides information about the financial institution that the sender used to transfer funds.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1916,7 +1916,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "description" : "The account number from which the wire transfer was initiated. It stores a string value that uniquely identifies the account from which the transfer was made. This column provides information about the source of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1925,7 +1925,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Name of the bank to which the wire transfer is sent.",
+                "description" : "The name of the bank where the wire transfer was received. This column stores string values and provides information about the destination of the transaction.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1934,7 +1934,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "description" : "The account number of the recipient of the wire transfer. It stores a string value that uniquely identifies the bank account of the recipient. This column is important for tracking the destination of the funds transferred.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1943,7 +1943,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country from which the wire transfer originates.",
+                "description" : "The country from which the wire transfer originated. This column stores values of string data type and provides information about the location of the sender of the wire transfer.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1952,7 +1952,7 @@
               "type" : "string",
               "nullable" : true,
               "metadata" : {
-                "description" : "Country to which the wire transfer is sent.",
+                "description" : "The country where the wire transfer was received. This column stores values in string data type and provides information about the destination of the transaction. It can be used to analyze the geographical distribution of wire transfers.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
@@ -1961,7 +1961,7 @@
               "type" : "double",
               "nullable" : true,
               "metadata" : {
-                "description" : "The monetary value of the wire transfer transaction.",
+                "description" : "Stores the amount of money transferred in each transaction. It is represented by numerical values in integer data type, indicating the monetary value of each transaction. This column provides information about the financial activity of the customers and the volume of money transferred between banks.",
                 "mappings" : [ ],
                 "tags" : [ ]
               }
