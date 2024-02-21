@@ -75,7 +75,16 @@
       "properties" : {
         "pipelineId" : "pipelines/pipe_financial_crimes",
         "configurations" : {
-          "schema" : [ ],
+          "schema" : [ {
+            "name" : "risk_scoring",
+            "optional" : false,
+            "kind" : {
+              "type" : "record",
+              "fields" : [ ]
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : true
+          } ],
           "instances" : {
             "Financial_Crimes" : [ "default" ]
           },

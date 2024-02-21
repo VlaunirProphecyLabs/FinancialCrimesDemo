@@ -1,0 +1,462 @@
+{
+  "id" : "VPBuoHLyFcqcIEpRaIUlh",
+  "component" : "Subgraph",
+  "metadata" : {
+    "label" : "",
+    "slug" : "",
+    "x" : 0,
+    "y" : 0,
+    "phase" : 0,
+    "cache" : false,
+    "detailedStats" : false,
+    "isImported" : false,
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ {
+      "id" : "G5iiLLdl4WKjaky3CU5vm",
+      "slug" : "in0",
+      "isStreaming" : false
+    } ],
+    "outputs" : [ {
+      "id" : "6L0A22LoG-lT95OIgcJfC",
+      "slug" : "out",
+      "isStreaming" : false
+    }, {
+      "id" : "AOknGGEeu897QfaMd00Rm",
+      "slug" : "out0",
+      "isStreaming" : false
+    } ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  },
+  "properties" : {
+    "packageName" : "risk_scoring"
+  },
+  "connections" : [ {
+    "id" : "szQcst_Zw81EEHJBkPUum",
+    "source" : "ynCWQlA_bPNJGMgxh4Gbs",
+    "sourcePort" : "J5O8N6fcBSgQOHhPteEfs",
+    "target" : "sK930vaH3sF7Fdlvnm5F7",
+    "targetPort" : "rGzfWVktLocFVE5rTQ7Gx"
+  }, {
+    "id" : "SirgCGb85JLYLaSCpRgt3",
+    "source" : "sK930vaH3sF7Fdlvnm5F7",
+    "sourcePort" : "dTYbAd4ShZJq667VRFT5i",
+    "target" : "RuKIQjQTxCHN3Js3UJQa0",
+    "targetPort" : "r2c99Kn9l48JNJ6xMEM5u"
+  }, {
+    "id" : "_A7BAYximz0jn2BxIouML",
+    "source" : "VPBuoHLyFcqcIEpRaIUlh",
+    "sourcePort" : "G5iiLLdl4WKjaky3CU5vm",
+    "target" : "ynCWQlA_bPNJGMgxh4Gbs",
+    "targetPort" : "XC5yxXZcFNiBrhETMW65I"
+  }, {
+    "id" : "5AE1TIA6X21Fc9-hRPPkd",
+    "source" : "RuKIQjQTxCHN3Js3UJQa0",
+    "sourcePort" : "ENzTXUOvgRoAXFCetB1OG",
+    "target" : "VPBuoHLyFcqcIEpRaIUlh",
+    "targetPort" : "6L0A22LoG-lT95OIgcJfC"
+  }, {
+    "id" : "CZ_oCNjoBX_RJcWRHUqcO",
+    "source" : "RuKIQjQTxCHN3Js3UJQa0",
+    "sourcePort" : "ENzTXUOvgRoAXFCetB1OG",
+    "target" : "VPBuoHLyFcqcIEpRaIUlh",
+    "targetPort" : "AOknGGEeu897QfaMd00Rm"
+  } ],
+  "processes" : {
+    "RuKIQjQTxCHN3Js3UJQa0" : {
+      "id" : "RuKIQjQTxCHN3Js3UJQa0",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "sort_risk_score",
+        "slug" : "sort_risk_score",
+        "x" : 1520,
+        "y" : 420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "r2c99Kn9l48JNJ6xMEM5u",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "ENzTXUOvgRoAXFCetB1OG",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "columnsSelector" : [ "r2c99Kn9l48JNJ6xMEM5u$$ke3WDMACf-7MIOHgHkd1W$$b1AevSG_vBwm6CLZCyB7v##total_risk" ],
+        "orders" : [ {
+          "expression" : {
+            "format" : "sql",
+            "expression" : "total_risk"
+          },
+          "sortType" : "desc"
+        } ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.3"
+      }
+    },
+    "ynCWQlA_bPNJGMgxh4Gbs" : {
+      "id" : "ynCWQlA_bPNJGMgxh4Gbs",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "risk_flags",
+        "slug" : "risk_flags",
+        "x" : 1120,
+        "y" : 420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "XC5yxXZcFNiBrhETMW65I",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "J5O8N6fcBSgQOHhPteEfs",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "transaction_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "transaction_id"
+          },
+          "description" : "",
+          "_row_id" : "1873047334"
+        }, {
+          "target" : "full_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "full_name"
+          },
+          "description" : "",
+          "_row_id" : "1842426200"
+        }, {
+          "target" : "from_bank",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "from_bank"
+          },
+          "description" : "",
+          "_row_id" : "539433493"
+        }, {
+          "target" : "from_account_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "from_account_number"
+          },
+          "description" : "",
+          "_row_id" : "1879139540"
+        }, {
+          "target" : "to_bank",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "to_bank"
+          },
+          "description" : "",
+          "_row_id" : "1691890178"
+        }, {
+          "target" : "to_account_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "to_account_number"
+          },
+          "description" : "",
+          "_row_id" : "1577620785"
+        }, {
+          "target" : "originating_country",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "originating_country"
+          },
+          "description" : "",
+          "_row_id" : "1871337723"
+        }, {
+          "target" : "destination_country",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "destination_country"
+          },
+          "description" : "",
+          "_row_id" : "175559759"
+        }, {
+          "target" : "transaction_amount",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "transaction_amount"
+          },
+          "description" : "",
+          "_row_id" : "1074735890"
+        }, {
+          "target" : "person_reason",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_reason"
+          },
+          "description" : "",
+          "_row_id" : "594659216"
+        }, {
+          "target" : "source_country_issue",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "source_country_issue"
+          },
+          "description" : "",
+          "_row_id" : "1701703981"
+        }, {
+          "target" : "target_country_issue",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "target_country_issue"
+          },
+          "description" : "",
+          "_row_id" : "146850063"
+        }, {
+          "target" : "person_flag",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CASE WHEN (person_reason is null) THEN 0 ELSE 1 END"
+          },
+          "description" : "",
+          "_row_id" : "476852384"
+        }, {
+          "target" : "src_country_flag",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CASE WHEN isnull(source_country_issue) THEN 0 ELSE 1 END"
+          },
+          "description" : "",
+          "_row_id" : "56137500"
+        }, {
+          "target" : "tar_country_flag",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CASE WHEN isnull(target_country_issue) THEN 0 ELSE 1 END"
+          },
+          "description" : "",
+          "_row_id" : "1171021686"
+        }, {
+          "target" : "transaction_flag",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "CASE WHEN ((transaction_amount >= 5000) AND (transaction_amount < 10000)) THEN 1 ELSE 0 END"
+          },
+          "description" : "",
+          "_row_id" : "1854697876"
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##transaction_id", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##from_account_number", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##person_reason", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##destination_country", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##originating_country", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##transaction_amount", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##full_name", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##to_account_number", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##to_bank", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##source_country_issue", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##target_country_issue", "XC5yxXZcFNiBrhETMW65I$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##from_bank" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.3"
+      }
+    },
+    "sK930vaH3sF7Fdlvnm5F7" : {
+      "id" : "sK930vaH3sF7Fdlvnm5F7",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "risk_score",
+        "slug" : "risk_score",
+        "x" : 1320,
+        "y" : 420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "rGzfWVktLocFVE5rTQ7Gx",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "dTYbAd4ShZJq667VRFT5i",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "transaction_id",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "transaction_id"
+          },
+          "description" : "",
+          "_row_id" : "1112457120"
+        }, {
+          "target" : "full_name",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "full_name"
+          },
+          "description" : "",
+          "_row_id" : "982742403"
+        }, {
+          "target" : "from_bank",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "from_bank"
+          },
+          "description" : "",
+          "_row_id" : "1800290734"
+        }, {
+          "target" : "from_account_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "from_account_number"
+          },
+          "description" : "",
+          "_row_id" : "754213714"
+        }, {
+          "target" : "to_bank",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "to_bank"
+          },
+          "description" : "",
+          "_row_id" : "904625144"
+        }, {
+          "target" : "to_account_number",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "to_account_number"
+          },
+          "description" : "",
+          "_row_id" : "789241753"
+        }, {
+          "target" : "originating_country",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "originating_country"
+          },
+          "description" : "",
+          "_row_id" : "612672591"
+        }, {
+          "target" : "destination_country",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "destination_country"
+          },
+          "description" : "",
+          "_row_id" : "892839627"
+        }, {
+          "target" : "transaction_amount",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "transaction_amount"
+          },
+          "description" : "",
+          "_row_id" : "1794689717"
+        }, {
+          "target" : "person_reason",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_reason"
+          },
+          "description" : "",
+          "_row_id" : "92846262"
+        }, {
+          "target" : "source_country_issue",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "source_country_issue"
+          },
+          "description" : "",
+          "_row_id" : "738561704"
+        }, {
+          "target" : "target_country_issue",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "target_country_issue"
+          },
+          "description" : "",
+          "_row_id" : "1921404337"
+        }, {
+          "target" : "person_flag",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_flag"
+          },
+          "description" : "",
+          "_row_id" : "411784333"
+        }, {
+          "target" : "src_country_flag",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "src_country_flag"
+          },
+          "description" : "",
+          "_row_id" : "596939567"
+        }, {
+          "target" : "tar_country_flag",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "tar_country_flag"
+          },
+          "description" : "",
+          "_row_id" : "1091546258"
+        }, {
+          "target" : "transaction_flag",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "transaction_flag"
+          },
+          "description" : "",
+          "_row_id" : "2075480964"
+        }, {
+          "target" : "total_risk",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "person_flag + src_country_flag + tar_country_flag + transaction_flag"
+          },
+          "description" : "",
+          "_row_id" : "409740593"
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##originating_country", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##src_country_flag", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##transaction_flag", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##source_country_issue", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##target_country_issue", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##transaction_amount", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##from_account_number", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##tar_country_flag", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##to_account_number", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##person_reason", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##destination_country", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##transaction_id", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##to_bank", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##from_bank", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##person_flag", "rGzfWVktLocFVE5rTQ7Gx$$Qv8TC8M31FpmC7Z6dI1d6##full_name" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectId" : "12654",
+        "projectName" : "ProphecySparkBasicsPython",
+        "version" : "0.2.3"
+      }
+    }
+  }
+}

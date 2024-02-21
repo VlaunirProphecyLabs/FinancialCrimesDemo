@@ -6,7 +6,7 @@ from prophecy.libs import typed_lit
 from pipe_financial_crimes.config.ConfigStore import *
 from pipe_financial_crimes.udfs.UDFs import *
 
-def transaction_full_name_reason(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
+def join_full_name(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
     return in0\
         .alias("in0")\
         .join(in1.alias("in1"), (col("in0.full_name") == col("in1.full_name")), "left_outer")\

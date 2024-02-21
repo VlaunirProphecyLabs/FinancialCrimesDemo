@@ -6,9 +6,9 @@ from prophecy.libs import typed_lit
 from pipe_financial_crimes.config.ConfigStore import *
 from pipe_financial_crimes.udfs.UDFs import *
 
-def ds_country_watchlist_tar(spark: SparkSession) -> DataFrame:
+def csv_person_watchlist(spark: SparkSession) -> DataFrame:
     return spark.read\
-        .schema(StructType([StructField("country", StringType(), True), StructField("issue", StringType(), True)]))\
+        .schema(StructType([StructField("full_name", StringType(), True), StructField("reason", StringType(), True)]))\
         .option("header", True)\
         .option("sep", ",")\
-        .csv("dbfs:/FileStore/bobwelshmer/financial_crimes/country_watchlist.csv")
+        .csv("dbfs:/FileStore/bobwelshmer/financial_crimes/individual_watchlist.csv")

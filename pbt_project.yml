@@ -24,11 +24,13 @@ pipelines:
       inputs:
       - datasets/ds_country_watchlist
       - datasets/ds_person_watchlist
-      - datasets/ds_wire_transfers
+      - datasets/table_wire_transfer
       outputs:
       - datasets/all_scored_transx
       - datasets/flagged_transactions
-    subgraphs: []
+      - datasets/table_all_transx_scored
+    subgraphs:
+    - subgraphs/risk_scoring
     dependencies: {}
 datasets:
   datasets/ds_wire_transfers:
@@ -96,6 +98,32 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-02-15 21:11:31'
+  datasets/table_wire_transfer:
+    name: table_wire_transfer
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-21 15:47:42'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Database
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-21 15:47:42'
+  datasets/table_all_transx_scored:
+    name: table_all_transx_scored
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-21 15:53:12'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: Database
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-21 15:53:12'
 templates: {}
 jobs:
   jobs/job_fin_crimes:
@@ -122,6 +150,30 @@ jobs:
     enabled: null
     createdAt: '2024-02-20 18:22:09'
     author: bobw@prophecy.io
+  jobs/job_fincrimes_airflow:
+    name: job_fincrimes_airflow
+    description: ''
+    fabricUID: 9770
+    scheduler:
+      Prophecy: {}
+    cloudProvider: null
+    jobSize: null
+    scheduleCron: None
+    timeout: null
+    alerting:
+      emails: ''
+      onStart: false
+      onSuccess: false
+      onFailure: false
+    pipelines:
+    - pipelines/pipe_financial_crimes
+    jobClusterMode:
+      clusterMode:
+        Single: {}
+      clusterId: null
+    enabled: null
+    createdAt: '2024-02-20 19:49:37'
+    author: bobw@prophecy.io
 gemContainer:
   languageVersion: '3.10'
   gemLibsVersion: 1.3.4.0
@@ -134,7 +186,15 @@ functions:
   udafs: {}
   expressions: {}
   airflowFunctions: {}
-subgraphs: {}
+subgraphs:
+  subgraphs/risk_scoring:
+    name: risk_scoring
+    description: ''
+    author: bobw@prophecy.io
+    language: python
+    artefactID: ''
+    mode: batch
+    createdAt: '2024-02-20 19:16:52'
 sqlModels: {}
 sqlMacros: {}
 sqlSeeds: {}

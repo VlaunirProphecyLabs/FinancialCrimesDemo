@@ -6,9 +6,11 @@ from prophecy.libs import typed_lit
 from pipe_financial_crimes.config.ConfigStore import *
 from pipe_financial_crimes.udfs.UDFs import *
 
-def ds_person_watchlist(spark: SparkSession) -> DataFrame:
-    return spark.read\
-        .schema(StructType([StructField("full_name", StringType(), True), StructField("reason", StringType(), True)]))\
+def csv_all_transx(spark: SparkSession, in0: DataFrame):
+    in0.write\
         .option("header", True)\
         .option("sep", ",")\
-        .csv("dbfs:/FileStore/bobwelshmer/financial_crimes/individual_watchlist.csv")
+        .mode("overwrite")\
+        .option("separator", ",")\
+        .option("header", True)\
+        .csv("dbfs:/FileStore/bobwelshmer/financial_crimes/outputs/all_scored_transx.csv")

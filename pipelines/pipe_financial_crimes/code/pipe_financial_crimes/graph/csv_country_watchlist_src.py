@@ -6,11 +6,9 @@ from prophecy.libs import typed_lit
 from pipe_financial_crimes.config.ConfigStore import *
 from pipe_financial_crimes.udfs.UDFs import *
 
-def t_all_transx(spark: SparkSession, in0: DataFrame):
-    in0.write\
+def csv_country_watchlist_src(spark: SparkSession) -> DataFrame:
+    return spark.read\
+        .schema(StructType([StructField("country", StringType(), True), StructField("issue", StringType(), True)]))\
         .option("header", True)\
         .option("sep", ",")\
-        .mode("overwrite")\
-        .option("separator", ",")\
-        .option("header", True)\
-        .csv("dbfs:/FileStore/bobwelshmer/financial_crimes/outputs/all_scored_transx.csv")
+        .csv("dbfs:/FileStore/bobwelshmer/financial_crimes/country_watchlist.csv")

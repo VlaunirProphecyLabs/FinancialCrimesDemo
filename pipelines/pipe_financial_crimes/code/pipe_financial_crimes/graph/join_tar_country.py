@@ -6,7 +6,7 @@ from prophecy.libs import typed_lit
 from pipe_financial_crimes.config.ConfigStore import *
 from pipe_financial_crimes.udfs.UDFs import *
 
-def international_transactions_join(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
+def join_tar_country(spark: SparkSession, in0: DataFrame, in1: DataFrame, ) -> DataFrame:
     return in0\
         .alias("in0")\
         .join(in1.alias("in1"), (col("in0.destination_country") == col("in1.country")), "left_outer")\

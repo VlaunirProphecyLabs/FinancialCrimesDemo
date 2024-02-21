@@ -7,32 +7,19 @@ from prophecy.utils import *
 from pipe_financial_crimes.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    df_ds_person_watchlist = ds_person_watchlist(spark)
-    df_ds_wire_transfers = ds_wire_transfers(spark)
-    df_reformatted_transactions = reformatted_transactions(spark, df_ds_wire_transfers)
-    df_transaction_full_name_reason = transaction_full_name_reason(
-        spark, 
-        df_reformatted_transactions, 
-        df_ds_person_watchlist
-    )
-    df_ds_country_watchlist_src = ds_country_watchlist_src(spark)
-    df_transaction_details_with_country_info = transaction_details_with_country_info(
-        spark, 
-        df_transaction_full_name_reason, 
-        df_ds_country_watchlist_src
-    )
-    df_ds_country_watchlist_tar = ds_country_watchlist_tar(spark)
-    df_international_transactions_join = international_transactions_join(
-        spark, 
-        df_transaction_details_with_country_info, 
-        df_ds_country_watchlist_tar
-    )
-    df_risk_flags = risk_flags(spark, df_international_transactions_join)
-    df_risk_score = risk_score(spark, df_risk_flags)
-    df_sort_risk_score = sort_risk_score(spark, df_risk_score)
-    df_flagged_transx = flagged_transx(spark, df_sort_risk_score)
+    df_csv_person_watchlist = csv_person_watchlist(spark)
+    df_table_wire_transfer = table_wire_transfer(spark)
+    df_full_name = full_name(spark, df_table_wire_transfer)
+    df_join_full_name = join_full_name(spark, df_full_name, df_csv_person_watchlist)
+    df_csv_country_watchlist_src = csv_country_watchlist_src(spark)
+    df_join_src_country = join_src_country(spark, df_join_full_name, df_csv_country_watchlist_src)
+    df_csv_country_watchlist_tar = csv_country_watchlist_tar(spark)
+    df_join_tar_country = join_tar_country(spark, df_join_src_country, df_csv_country_watchlist_tar)
+    df_risk_scoring_out, df_risk_scoring_out0 = risk_scoring(spark, Config.risk_scoring, df_join_tar_country)
+    df_flagged_transx = flagged_transx(spark, df_risk_scoring_out)
+    table_all_transx(spark, df_risk_scoring_out0)
     t_flagged_transx(spark, df_flagged_transx)
-    t_all_transx(spark, df_sort_risk_score)
+    csv_all_transx(spark, df_risk_scoring_out0)
 
 def main():
     spark = SparkSession.builder\

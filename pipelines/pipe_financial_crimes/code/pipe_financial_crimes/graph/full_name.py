@@ -6,7 +6,7 @@ from prophecy.libs import typed_lit
 from pipe_financial_crimes.config.ConfigStore import *
 from pipe_financial_crimes.udfs.UDFs import *
 
-def reformatted_transactions(spark: SparkSession, in0: DataFrame) -> DataFrame:
+def full_name(spark: SparkSession, in0: DataFrame) -> DataFrame:
     return in0.select(
         col("transaction_id"), 
         concat(col("first_name"), lit(" "), col("last_name")).alias("full_name"), 
