@@ -32,6 +32,24 @@ pipelines:
     subgraphs:
     - subgraphs/risk_scoring
     dependencies: {}
+  pipelines/simple_pipeline:
+    name: simple_pipeline
+    description: simple demo pipeline
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-02-21 17:28:24'
+    datasets:
+      inputs:
+      - datasets/ds_country_watchlist
+      - datasets/ds_person_watchlist
+      - datasets/table_wire_transfer
+      outputs:
+      - datasets/all
+      - datasets/flagged
+    subgraphs: []
+    dependencies: {}
 datasets:
   datasets/ds_wire_transfers:
     name: ds_wire_transfers
@@ -100,7 +118,12 @@ datasets:
         createdAt: '2024-02-15 21:11:31'
   datasets/table_wire_transfer:
     name: table_wire_transfer
-    description: ''
+    description: The 'wire_transfer' table contains data related to financial crimes
+      involving wire transfers. It includes information about the transaction such
+      as the sender and recipient, the originating and destination countries, and
+      the amount of the transaction. This data can be used to track patterns in illegal
+      wire transfers, identify suspicious activities, and assist in investigations
+      into financial crime.
     author: bobw@prophecy.io
     createdAt: '2024-02-21 15:47:42'
     mode: batch
@@ -124,6 +147,32 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-02-21 15:53:12'
+  datasets/flagged:
+    name: flagged
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-21 18:37:30'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-21 18:37:30'
+  datasets/all:
+    name: all
+    description: ''
+    author: bobw@prophecy.io
+    createdAt: '2024-02-21 18:38:13'
+    mode: batch
+    physicalDatasets:
+      Databricks-Prophecy:
+        fabricId: 9631
+        datasetType: File
+        description: ''
+        author: bobw@prophecy.io
+        createdAt: '2024-02-21 18:38:13'
 templates: {}
 jobs:
   jobs/job_fin_crimes:
@@ -189,7 +238,8 @@ functions:
 subgraphs:
   subgraphs/risk_scoring:
     name: risk_scoring
-    description: ''
+    description: Sub transformations the score wire transfers for potentially nefarious
+      purposes
     author: bobw@prophecy.io
     language: python
     artefactID: ''

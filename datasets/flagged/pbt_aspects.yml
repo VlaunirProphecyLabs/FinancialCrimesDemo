@@ -1,0 +1,116 @@
+version: 1
+schema:
+  type: struct
+  fields:
+  - name: transaction_id
+    type: long
+    nullable: true
+    metadata:
+      description: Unique identifier for each wire transfer transaction.
+      mappings: []
+      tags: []
+  - name: full_name
+    type: string
+    nullable: true
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: from_bank
+    type: string
+    nullable: true
+    metadata:
+      description: Name of the bank from which the wire transfer originates.
+      mappings: []
+      tags: []
+  - name: from_account_number
+    type: string
+    nullable: true
+    metadata:
+      description: Account number associated with the sender's bank account from which
+        the wire transfer originates.
+      mappings: []
+      tags: []
+  - name: to_bank
+    type: string
+    nullable: true
+    metadata:
+      description: Name of the bank to which the wire transfer is sent.
+      mappings: []
+      tags: []
+  - name: to_account_number
+    type: string
+    nullable: true
+    metadata:
+      description: Account number associated with the recipient's bank account to
+        which the wire transfer is sent.
+      mappings: []
+      tags: []
+  - name: originating_country
+    type: string
+    nullable: true
+    metadata:
+      description: Country from which the wire transfer originates.
+      mappings: []
+      tags: []
+  - name: destination_country
+    type: string
+    nullable: true
+    metadata:
+      description: Country to which the wire transfer is sent.
+      mappings: []
+      tags: []
+  - name: transaction_amount
+    type: double
+    nullable: true
+    metadata:
+      description: The monetary value of the wire transfer transaction.
+      mappings: []
+      tags: []
+  - name: person_reason
+    type: string
+    nullable: true
+    metadata:
+      description: The reason for an individual being on the watchlist. It stores
+        a string value that provides information about why the person is being monitored.
+        This column is used to track potential risks or threats associated with each
+        individual on the watchlist.
+      mappings: []
+      tags: []
+  - name: country_issue
+    type: string
+    nullable: true
+    metadata:
+      description: Describes the specific issue or concern related to a particular
+        country. The values in this column are of string data type and provide information
+        on the reason why a country is on the watchlist.
+      mappings: []
+      tags: []
+  - name: person_reason_flag
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: country_reason_flag
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: transaction_amount_flag
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
+  - name: risk_score
+    type: integer
+    nullable: false
+    metadata:
+      description: ''
+      mappings: []
+      tags: []
