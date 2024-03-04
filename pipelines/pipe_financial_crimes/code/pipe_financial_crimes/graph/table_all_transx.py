@@ -7,4 +7,4 @@ from pipe_financial_crimes.config.ConfigStore import *
 from pipe_financial_crimes.udfs.UDFs import *
 
 def table_all_transx(spark: SparkSession, in0: DataFrame):
-    in0.write.format("delta").mode("error").saveAsTable("`bobwelshmer`.`financial_crimes`.`all_transx_scored`")
+    in0.write.format("delta").mode("overwrite").saveAsTable("`bobwelshmer`.`financial_crimes`.`all_transx_scored`")

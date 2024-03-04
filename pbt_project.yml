@@ -14,7 +14,14 @@ buildSystemDetails:
 pipelines:
   pipelines/pipe_financial_crimes:
     name: pipe_financial_crimes
-    description: See project description
+    description: This codebase provides a pipeline for detecting financial crimes
+      by flagging high-risk transactions. It reads in data from various sources, including
+      CSV files and tables, and performs data cleaning and transformation operations
+      to prepare the data for analysis. The pipeline includes several functions for
+      joining and aggregating data, calculating risk scores, and sorting transactions
+      by risk level. The output of the pipeline includes both flagged transactions
+      and a table of all transactions with associated risk scores. This pipeline could
+      be used by financial institutions to identify and prevent fraudulent activity.
     author: bobw@prophecy.io
     mode: batch
     artefactID: ''
@@ -257,18 +264,18 @@ projectDependencies:
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.3
+    version: 0.2.4
     isDefault: true
     author: null
-    createdAt: '2024-02-14 16:59:15'
+    createdAt: '2024-03-04 16:20:45'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=
-    version: 0.0.2
+    version: 0.0.3
     isDefault: true
     author: null
-    createdAt: '2024-02-14 16:59:15'
+    createdAt: '2024-03-04 16:20:48'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

@@ -156,7 +156,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem reads in a CSV file containing a list of individuals on a watchlist for financial crimes. It uses a specified schema to ensure the data is properly formatted and can be easily integrated with other data sources for analysis and decision-making."
       },
       "ports" : {
         "inputs" : [ ],
@@ -183,7 +184,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem filters payment data to only include transactions that have been flagged as high risk based on a predetermined threshold. This could be used to identify potential fraudulent activity or to prioritize investigations into suspicious transactions."
       },
       "ports" : {
         "inputs" : [ {
@@ -364,7 +366,7 @@
         }
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Filter",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/Filter",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -380,7 +382,7 @@
         "cache" : false,
         "detailedStats" : false,
         "isImported" : false,
-        "comment" : "join"
+        "comment" : "This gem merges two dataframes based on the full name field, creating a left outer join that includes all records from the left dataframe and matching records from the right dataframe. The resulting dataframe includes transaction details such as bank information, account numbers, and transaction amounts, as well as any additional information from the right dataframe, such as reasons for the transaction or other personal details."
       },
       "ports" : {
         "inputs" : [ {
@@ -610,13 +612,13 @@
         } ],
         "allIn1" : null,
         "activeTab" : "expressions",
-        "columnsSelector" : [ "EUmQHeQuntHHKNR_0Z-LB$$rlWCc_vzgUs67sjUK_Cw7##full_name", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##full_name", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##originating_country", "EUmQHeQuntHHKNR_0Z-LB$$rlWCc_vzgUs67sjUK_Cw7##reason", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##destination_country", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##to_account_number", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##from_bank", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##to_bank", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##full_name", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##from_account_number", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##transaction_amount", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##transaction_id" ],
+        "columnsSelector" : [ "EUmQHeQuntHHKNR_0Z-LB$$rlWCc_vzgUs67sjUK_Cw7##full_name", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##full_name", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##from_account_number", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##transaction_id", "EUmQHeQuntHHKNR_0Z-LB$$rlWCc_vzgUs67sjUK_Cw7##reason", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##destination_country", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##to_bank", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##originating_country", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##transaction_amount", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##full_name", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##from_bank", "nzP9VXFLOrxyMLLxhztJq$$ZhXcBtrbilPAqXqWckR4n##to_account_number" ],
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Join",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -631,7 +633,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem saves the input DataFrame as a Delta table named \"all_transx_scored\" in the \"financial_crimes\" database under the \"bobwelshmer\" user. This could be useful for data persistence and sharing across different applications and users."
       },
       "ports" : {
         "inputs" : [ {
@@ -816,7 +819,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem merges transaction data with country information based on the destination country identifier. It provides a comprehensive view of transaction details including the full name of the sender, bank and account numbers, originating and destination countries, transaction amount, and reason for the transaction. The left outer join ensures that all transactions are included in the output, even if there is no matching country information available."
       },
       "ports" : {
         "inputs" : [ {
@@ -1080,13 +1084,13 @@
         } ],
         "allIn1" : null,
         "activeTab" : "conditions",
-        "columnsSelector" : [ "yhHPovuvlPxxGzxdFxdOw$$sLeGEceCTWONqi3FXsvfS##country", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##destination_country", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##to_bank", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##transaction_amount", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##from_account_number", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##person_reason", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##source_country_issue", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##destination_country", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##full_name", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##from_bank", "yhHPovuvlPxxGzxdFxdOw$$sLeGEceCTWONqi3FXsvfS##issue", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##originating_country", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##to_account_number", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##transaction_id" ],
+        "columnsSelector" : [ "yhHPovuvlPxxGzxdFxdOw$$sLeGEceCTWONqi3FXsvfS##country", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##destination_country", "yhHPovuvlPxxGzxdFxdOw$$sLeGEceCTWONqi3FXsvfS##issue", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##person_reason", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##destination_country", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##originating_country", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##transaction_id", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##to_account_number", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##source_country_issue", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##full_name", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##to_bank", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##from_account_number", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##transaction_amount", "xbPBNG54ZIJ6zmb8blYfJ$$Y04dclf8RhgQmWatlo4_B##from_bank" ],
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Join",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1101,7 +1105,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem combines the first name and last name fields of each record into a single full name field and selects other transaction details such as bank names, account numbers, originating and destination countries, and transaction amount. This could enhance readability and make it easier for business users to understand and utilize the transaction information in their analyses and reports."
       },
       "ports" : {
         "inputs" : [ {
@@ -1279,10 +1284,10 @@
         } ],
         "importString" : "",
         "activeTab" : "expressions",
-        "columnsSelector" : [ "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##to_account_number", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##transaction_amount", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##from_bank", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##last_name", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##destination_country", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##from_account_number", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##to_bank", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##transaction_id", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##originating_country", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##first_name" ]
+        "columnsSelector" : [ "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##destination_country", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##from_bank", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##first_name", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##from_account_number", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##transaction_amount", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##last_name", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##to_account_number", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##originating_country", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##transaction_id", "_39yOfRo5tfvY8gTISgm5$$TtWzhD2uJIyAXNGLPNLCI##to_bank" ]
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/Reformat",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -1297,7 +1302,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This pipeline graph provides a risk scoring system for financial transactions. It calculates risk flags based on various factors such as person reason, source and target country issues, and transaction amount. It then aggregates these flags to calculate a total risk score for each transaction. The transactions are sorted in descending order of risk score to prioritize further investigation and analysis."
       },
       "ports" : {
         "inputs" : [ {
@@ -1660,7 +1666,7 @@
             } ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/OrderBy",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -1923,7 +1929,7 @@
             "columnsSelector" : [ "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##transaction_id", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##from_account_number", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##person_reason", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##destination_country", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##originating_country", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##transaction_amount", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##full_name", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##to_account_number", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##to_bank", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##source_country_issue", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##target_country_issue", "XC5yxXZcFNiBrhETMW65I$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##from_bank" ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Reformat",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/Reformat",
             "projectName" : "ProphecySparkBasicsPython"
           }
         },
@@ -2229,7 +2235,7 @@
             "columnsSelector" : [ "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##originating_country", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##src_country_flag", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##transaction_flag", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##source_country_issue", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##target_country_issue", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##transaction_amount", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##from_account_number", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##tar_country_flag", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##to_account_number", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##person_reason", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##destination_country", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##transaction_id", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##to_bank", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##from_bank", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##person_flag", "rGzfWVktLocFVE5rTQ7Gx$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##full_name" ]
           },
           "componentInfo" : {
-            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Reformat",
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/Reformat",
             "projectName" : "ProphecySparkBasicsPython"
           }
         }
@@ -2246,7 +2252,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem reads data from a table named 'wire_transfer' in the 'financial_crimes' database owned by 'bobwelshmer'. This could be used to extract wire transfer data for further analysis and investigation of financial crimes."
       },
       "ports" : {
         "inputs" : [ ],
@@ -2273,7 +2280,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem reads in a CSV file containing a list of countries and their associated financial crime issues. It uses a specified schema to ensure the data is properly formatted and then returns a DataFrame for further processing and analysis."
       },
       "ports" : {
         "inputs" : [ ],
@@ -2300,7 +2308,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem writes the input DataFrame to a CSV file with headers and a specified separator. The output file is saved to a specified location in the Databricks file system. This could be used to export the flagged transactions data for further analysis or reporting."
       },
       "ports" : {
         "inputs" : [ {
@@ -2485,7 +2494,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem reads in a CSV file containing a list of countries and their associated financial crime issues. It uses a specified schema to ensure the data is properly formatted and then returns a DataFrame for further analysis and processing."
       },
       "ports" : {
         "inputs" : [ ],
@@ -2512,7 +2522,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem joins two dataframes based on the originating country field in the first dataframe and the country field in the second dataframe. It returns a new dataframe with selected columns from both dataframes. The resulting dataframe provides additional information about the transaction, including the source country issue, which can be used to analyze transaction patterns and identify potential risks or opportunities."
       },
       "ports" : {
         "inputs" : [ {
@@ -2759,13 +2770,13 @@
         } ],
         "allIn1" : null,
         "activeTab" : "conditions",
-        "columnsSelector" : [ "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##originating_country", "BN5YTStGSF_B6Ol0shLwy$$_kbW-3J_IzBGKaY2j0itK##country", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##full_name", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##to_account_number", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##from_account_number", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##person_reason", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##to_bank", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##from_bank", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##destination_country", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##transaction_amount", "BN5YTStGSF_B6Ol0shLwy$$_kbW-3J_IzBGKaY2j0itK##issue", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##transaction_id", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##originating_country" ],
+        "columnsSelector" : [ "BN5YTStGSF_B6Ol0shLwy$$_kbW-3J_IzBGKaY2j0itK##country", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##originating_country", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##transaction_id", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##person_reason", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##transaction_amount", "BN5YTStGSF_B6Ol0shLwy$$_kbW-3J_IzBGKaY2j0itK##issue", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##from_bank", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##full_name", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##to_account_number", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##from_account_number", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##to_bank", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##originating_country", "ZppkoJUsNq6tleniNpGCS$$dF2mfZY7P6eNLxEvLnbFp##destination_country" ],
         "allIn0" : null,
         "whereClause" : null,
         "headAlias" : "in0"
       },
       "componentInfo" : {
-        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.3&projectSubscriptionProjectId=12654&path=gems/Join",
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.4&projectSubscriptionProjectId=12654&path=gems/Join",
         "projectName" : "ProphecySparkBasicsPython"
       }
     },
@@ -2780,7 +2791,8 @@
         "phase" : 0,
         "cache" : false,
         "detailedStats" : false,
-        "isImported" : false
+        "isImported" : false,
+        "comment" : "This gem writes the input DataFrame to a CSV file with headers and a specified separator. The output file is saved to a specified location in the Databricks file system. This could be useful for archiving or sharing the data with external stakeholders."
       },
       "ports" : {
         "inputs" : [ {
