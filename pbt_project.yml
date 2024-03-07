@@ -1,7 +1,7 @@
 name: Financial_Crimes
 description: Combine wire transfers and various watchlists and enrich with rules to
   calculate a risk score to identify potentially nefarious transactions
-version: '8'
+version: '9'
 author: bobw@prophecy.io
 language: python
 buildSystem: ''
