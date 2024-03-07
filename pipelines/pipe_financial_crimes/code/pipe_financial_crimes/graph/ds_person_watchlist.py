@@ -3,8 +3,8 @@ from pyspark.sql.functions import *
 from pyspark.sql.types import *
 from prophecy.utils import *
 from prophecy.libs import typed_lit
-from simple_pipeline.config.ConfigStore import *
-from simple_pipeline.udfs.UDFs import *
+from pipe_financial_crimes.config.ConfigStore import *
+from pipe_financial_crimes.udfs.UDFs import *
 
 def ds_person_watchlist(spark: SparkSession) -> DataFrame:
     return spark.read\

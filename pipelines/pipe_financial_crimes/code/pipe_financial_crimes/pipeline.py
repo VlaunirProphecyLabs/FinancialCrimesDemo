@@ -7,15 +7,19 @@ from prophecy.utils import *
 from pipe_financial_crimes.graph import *
 
 def pipeline(spark: SparkSession) -> None:
-    df_csv_person_watchlist = csv_person_watchlist(spark)
-    df_table_wire_transfer = table_wire_transfer(spark)
-    df_full_name = full_name(spark, df_table_wire_transfer)
-    df_join_full_name = join_full_name(spark, df_full_name, df_csv_person_watchlist)
-    df_csv_country_watchlist_src = csv_country_watchlist_src(spark)
-    df_join_src_country = join_src_country(spark, df_join_full_name, df_csv_country_watchlist_src)
-    df_csv_country_watchlist_tar = csv_country_watchlist_tar(spark)
-    df_join_tar_country = join_tar_country(spark, df_join_src_country, df_csv_country_watchlist_tar)
-    df_risk_scoring_out, df_risk_scoring_out0 = risk_scoring(spark, Config.risk_scoring, df_join_tar_country)
+    df_table_wire_transfer_1 = table_wire_transfer_1(spark)
+    df_concat_full_name = concat_full_name(spark, df_table_wire_transfer_1)
+    df_ds_person_watchlist = ds_person_watchlist(spark)
+    df_ds_src_country_watchlist = ds_src_country_watchlist(spark)
+    df_ds_tar_country_watchlist_1 = ds_tar_country_watchlist_1(spark)
+    df_join_multiple_dataframes = join_multiple_dataframes(
+        spark, 
+        df_concat_full_name, 
+        df_ds_person_watchlist, 
+        df_ds_src_country_watchlist, 
+        df_ds_tar_country_watchlist_1
+    )
+    df_risk_scoring_out, df_risk_scoring_out0 = risk_scoring(spark, Config.risk_scoring, df_join_multiple_dataframes)
     df_flagged_transx = flagged_transx(spark, df_risk_scoring_out)
     table_all_transx(spark, df_risk_scoring_out0)
     t_flagged_transx(spark, df_flagged_transx)

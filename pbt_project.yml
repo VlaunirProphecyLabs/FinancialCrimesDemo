@@ -14,14 +14,19 @@ buildSystemDetails:
 pipelines:
   pipelines/pipe_financial_crimes:
     name: pipe_financial_crimes
-    description: This codebase provides a pipeline for detecting financial crimes
-      by flagging high-risk transactions. It reads in data from various sources, including
-      CSV files and tables, and performs data cleaning and transformation operations
-      to prepare the data for analysis. The pipeline includes several functions for
-      joining and aggregating data, calculating risk scores, and sorting transactions
-      by risk level. The output of the pipeline includes both flagged transactions
-      and a table of all transactions with associated risk scores. This pipeline could
-      be used by financial institutions to identify and prevent fraudulent activity.
+    description: This codebase provides a solution for detecting financial crimes
+      by analyzing wire transfer transactions. It reads in data from multiple sources,
+      including a wire transfer table, individual watchlist, and country watchlist.
+      It then joins these data sources to create a comprehensive view of each transaction,
+      including the full name of the sender and receiver, their respective banks and
+      account numbers, originating and destination countries, and transaction amount.
+      The code then calculates a risk score for each transaction based on various
+      factors, including whether the sender or receiver is on the watchlist, whether
+      the originating or destination country is on the watchlist, and the transaction
+      amount. Finally, the code sorts the transactions by risk score, allowing for
+      easy identification of high-risk transactions that may require further investigation.
+      This solution could be used by financial institutions to proactively detect
+      and prevent financial crimes such as money laundering and terrorist financing.
     author: bobw@prophecy.io
     mode: batch
     artefactID: ''
@@ -39,38 +44,7 @@ pipelines:
     subgraphs:
     - subgraphs/risk_scoring
     dependencies: {}
-  pipelines/simple_pipeline:
-    name: simple_pipeline
-    description: simple demo pipeline
-    author: bobw@prophecy.io
-    mode: batch
-    artefactID: ''
-    language: python
-    createdAt: '2024-02-21 17:28:24'
-    datasets:
-      inputs:
-      - datasets/ds_country_watchlist
-      - datasets/ds_person_watchlist
-      - datasets/ds_wire_transfers
-      outputs:
-      - datasets/all
-      - datasets/flagged
-    subgraphs: []
-    dependencies: {}
 datasets:
-  datasets/ds_wire_transfers:
-    name: ds_wire_transfers
-    description: ''
-    author: bobw@prophecy.io
-    createdAt: '2024-02-14 17:32:42'
-    mode: batch
-    physicalDatasets:
-      Databricks-Prophecy:
-        fabricId: 9631
-        datasetType: File
-        description: ''
-        author: bobw@prophecy.io
-        createdAt: '2024-02-14 17:32:42'
   datasets/ds_country_watchlist:
     name: ds_country_watchlist
     description: ''
@@ -154,32 +128,6 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-02-21 15:53:12'
-  datasets/flagged:
-    name: flagged
-    description: ''
-    author: bobw@prophecy.io
-    createdAt: '2024-02-21 18:37:30'
-    mode: batch
-    physicalDatasets:
-      Databricks-Prophecy:
-        fabricId: 9631
-        datasetType: File
-        description: ''
-        author: bobw@prophecy.io
-        createdAt: '2024-02-21 18:37:30'
-  datasets/all:
-    name: all
-    description: ''
-    author: bobw@prophecy.io
-    createdAt: '2024-02-21 18:38:13'
-    mode: batch
-    physicalDatasets:
-      Databricks-Prophecy:
-        fabricId: 9631
-        datasetType: File
-        description: ''
-        author: bobw@prophecy.io
-        createdAt: '2024-02-21 18:38:13'
 templates: {}
 jobs:
   jobs/job_fin_crimes:
