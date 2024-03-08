@@ -606,7 +606,7 @@
       "metadata" : {
         "label" : "risk_scoring",
         "slug" : "risk_scoring",
-        "x" : 680,
+        "x" : 660,
         "y" : 300,
         "phase" : 0,
         "cache" : false,
@@ -2311,7 +2311,7 @@
       "metadata" : {
         "label" : "csv_all_transx",
         "slug" : "csv_all_transx",
-        "x" : 880,
+        "x" : 900,
         "y" : 320,
         "phase" : 0,
         "cache" : false,

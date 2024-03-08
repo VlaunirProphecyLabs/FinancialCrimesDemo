@@ -41,6 +41,19 @@
       "scalalibsResolutionMode" : {
         "PublicCentral" : { }
       }
+    }, {
+      "id" : "9851",
+      "name" : "workshop-fabric",
+      "clusterSizes" : {
+        "default" : "small",
+        "availableClusterSizes" : [ "small" ]
+      },
+      "pylibsResolutionMode" : {
+        "PublicCentral" : { }
+      },
+      "scalalibsResolutionMode" : {
+        "PublicCentral" : { }
+      }
     } ]
   },
   "processes" : {
@@ -50,8 +63,8 @@
       "metadata" : {
         "label" : "pipe_financial_crimes",
         "slug" : "pipe_financial_crimes",
-        "x" : -760,
-        "y" : -340
+        "x" : -900,
+        "y" : -440
       },
       "ports" : {
         "inputs" : [ {
