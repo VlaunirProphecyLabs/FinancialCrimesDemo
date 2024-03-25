@@ -24,8 +24,8 @@
       "name" : "Airflow",
       "trialStartDate" : 1708458382170
     } ],
-    "catchup" : true,
     "endDate" : "2024-03-12",
+    "catchup" : true,
     "scheduleTimeZone" : "UTC",
     "dagParams" : {
       "instances" : {
@@ -34,7 +34,12 @@
       "params" : { },
       "selected" : "default"
     },
-    "airflowFunctions" : [ ]
+    "airflowFunctions" : [ ],
+    "dynamicPipelineStatus" : {
+      "databricks" : false,
+      "dataproc" : false,
+      "emr" : false
+    }
   },
   "processes" : {
     "-Aapy72Qv0Gznc-kvDENc$$l_IOmLAA2zSOKwxPs_iEZ" : {
@@ -79,7 +84,10 @@
           "selectedInstance" : "default"
         },
         "taskId" : null,
-        "pipelineId" : "pipelines/pipe_financial_crimes"
+        "pipelineId" : {
+          "type" : "literal",
+          "value" : "pipelines/pipe_financial_crimes"
+        }
       },
       "connections" : [ ],
       "processes" : { }
