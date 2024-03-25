@@ -7,7 +7,7 @@ setup(
     package_data = {'prophecy_config_instances' : ['*.json', '*.py', '*.conf']},
     description = 'workflow',
     install_requires = [
-'prophecy-libs==1.8.7'],
+'prophecy-libs==1.8.12'],
     entry_points = {
 'console_scripts' : [
 'main = pipe_financial_crimes.pipeline:main'], },
