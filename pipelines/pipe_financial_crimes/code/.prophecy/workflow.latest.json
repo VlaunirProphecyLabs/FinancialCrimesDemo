@@ -4,7 +4,11 @@
       "gemBuilderVersion" : "v1"
     },
     "codeGenConfiguration" : {
-      "editableConfig" : true
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "7.1.83",
+        "pyPiVersion" : "1.8.13"
+      }
     },
     "id" : "1",
     "uri" : "pipelines/pipe_financial_crimes",
@@ -69,7 +73,7 @@
       "value" : 1000
     },
     "topLevelPackage" : "pipe_financial_crimes",
-    "configurationVersion" : "v1"
+    "configurationVersion" : "v2"
   },
   "connections" : [ {
     "id" : "__fxoFNMlhq5mMiNA5jrb$$LUwpiid5hNELMIIqh581b",

@@ -206,7 +206,19 @@ sqlSeeds: {}
 sqlSources: {}
 sqlUnreferencedSources: {}
 sqlPipeline: null
-dependencies: '[]'
+dependencies:
+- type: plibMaven
+  modifiedAt: '2024-04-05T17:37:16.315363Z'
+  name: plibMaven
+  version: 7.1.83
+  id: '1942385491'
+  createdAt: '2024-04-05T17:37:16.315258Z'
+- type: plibPypi
+  modifiedAt: '2024-04-05T17:37:16.315531Z'
+  name: plibPypi
+  version: 1.8.13
+  id: '1469039237'
+  createdAt: '2024-04-05T17:37:16.315462Z'
 projectDependencies:
   '12654':
     projectUID: 12654
