@@ -20,9 +20,9 @@
       "do_xcom_push" : true
     },
     "availableFabrics" : [ {
-      "id" : "9770",
+      "id" : "10625",
       "name" : "Airflow",
-      "trialStartDate" : 1708458382170
+      "trialStartDate" : 1711576238113
     } ],
     "endDate" : "2024-03-12",
     "catchup" : true,

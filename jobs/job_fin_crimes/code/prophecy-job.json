@@ -33,7 +33,7 @@
       "name" : "Databricks-Prophecy",
       "clusterSizes" : {
         "default" : "small",
-        "availableClusterSizes" : [ "small" ]
+        "availableClusterSizes" : [ "small", "medium", "large" ]
       },
       "pylibsResolutionMode" : {
         "PublicCentral" : { }
