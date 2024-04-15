@@ -64,11 +64,11 @@
       },
       "libraries" : [ {
         "maven" : {
-          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.1.83"
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.1.88"
         }
       }, {
         "pypi" : {
-          "package" : "prophecy-libs==1.8.13"
+          "package" : "prophecy-libs==1.8.15"
         }
       }, {
         "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pipe_financial_crimes-1.0-py3-none-any.whl"
