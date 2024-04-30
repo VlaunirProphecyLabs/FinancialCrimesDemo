@@ -20,9 +20,9 @@
       "do_xcom_push" : true
     },
     "availableFabrics" : [ {
-      "id" : "10625",
-      "name" : "Airflow",
-      "trialStartDate" : 1711576238113
+      "id" : "11413",
+      "name" : "Airflow-Prophecy",
+      "trialStartDate" : 1713534461239
     } ],
     "endDate" : "2024-03-12",
     "catchup" : true,
@@ -38,13 +38,14 @@
     "dynamicPipelineStatus" : {
       "databricks" : false,
       "dataproc" : false,
-      "emr" : false
+      "emr" : false,
+      "onprem" : false
     }
   },
   "processes" : {
     "-Aapy72Qv0Gznc-kvDENc$$l_IOmLAA2zSOKwxPs_iEZ" : {
       "id" : "-Aapy72Qv0Gznc-kvDENc$$l_IOmLAA2zSOKwxPs_iEZ",
-      "component" : "Pipeline",
+      "component" : "DatabricksPipeline",
       "metadata" : {
         "label" : "pipe_financial_crimes",
         "slug" : "pipe_financial_crimes",

@@ -64,7 +64,7 @@
       },
       "libraries" : [ {
         "maven" : {
-          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.1.88"
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.1.93"
         }
       }, {
         "pypi" : {
