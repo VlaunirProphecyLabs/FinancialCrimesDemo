@@ -1,22 +1,14 @@
 {
-  "fabric_id" : "9631",
-  "components" : [ {
-    "PipelineComponent" : {
-      "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pipe_financial_crimes-1.0-py3-none-any.whl",
-      "nodeName" : "pipe_financial_crimes",
-      "id" : "cRarHqCe2yVB_cLMZ2HGU$$UW2jJKFyS9nD8CZWo_4mO",
-      "language" : "python",
-      "pipelineId" : "pipelines/pipe_financial_crimes"
-    }
-  } ],
+  "fabric_id" : "9664",
+  "components" : [ ],
   "request" : {
     "format" : "MULTI_TASK",
     "name" : "job_fin_crimes",
     "job_clusters" : [ {
-      "job_cluster_key" : "job_fin_crimes_default_small",
+      "job_cluster_key" : "job_fin_crimes_default_Small",
       "new_cluster" : {
-        "spark_version" : "12.2.x-scala2.12",
-        "node_type_id" : "i3.xlarge",
+        "spark_version" : "14.3.x-scala2.12",
+        "node_type_id" : "i4i.large",
         "num_workers" : 0,
         "custom_tags" : {
           "ResourceClass" : "SingleNode"
@@ -25,15 +17,15 @@
         "spark_conf" : {
           "spark.databricks.cluster.profile" : "singleNode",
           "spark.master" : "local[*, 4]",
-          "spark.prophecy.metadata.fabric.id" : "9631",
+          "spark.prophecy.metadata.fabric.id" : "9664",
           "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/job_fin_crimes",
           "spark.prophecy.metadata.is.interactive.run" : "false",
           "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
-          "spark.prophecy.metadata.user.id" : "5088",
+          "spark.prophecy.metadata.user.id" : "5087",
           "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKsgsSI1Py8xLzEvOTMyJTy7KzE0tVrICi+dk5qUW62NXUQsAZpnGpTsAAAA=",
           "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
           "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
-          "spark.prophecy.execution.metrics.disabled" : "false",
+          "spark.prophecy.execution.metrics.disabled" : "true",
           "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
           "spark.databricks.isv.product" : "prophecy"
         },
@@ -54,38 +46,18 @@
       "on_success" : [ "bobw@prophecy.io" ],
       "on_failure" : [ "bobw@prophecy.io" ]
     },
-    "tasks" : [ {
-      "task_key" : "pipe_financial_crimes",
-      "job_cluster_key" : "job_fin_crimes_default_small",
-      "python_wheel_task" : {
-        "package_name" : "pipe_financial_crimes",
-        "entry_point" : "main",
-        "parameters" : [ "-i", "default", "-O", "{}" ]
-      },
-      "libraries" : [ {
-        "maven" : {
-          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.1.93"
-        }
-      }, {
-        "pypi" : {
-          "package" : "prophecy-libs==1.8.15"
-        }
-      }, {
-        "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pipe_financial_crimes-1.0-py3-none-any.whl"
-      } ],
-      "email_notifications" : { },
-      "max_retries" : 0
-    } ],
+    "tasks" : [ ],
     "max_concurrent_runs" : 1,
     "schedule" : {
       "quartz_cron_expression" : "0 0 0 1 1 ? *",
       "timezone_id" : "UTC",
       "pause_status" : "PAUSED"
-    }
+    },
+    "access_control_list" : [ ]
   },
   "cluster_mode" : {
     "clusterMode" : "Single"
   },
-  "secret_scope" : "prophecy_jobs_7058",
-  "sorted_processes" : [ "cRarHqCe2yVB_cLMZ2HGU$$UW2jJKFyS9nD8CZWo_4mO" ]
+  "secret_scope" : "prophecy_jobs_7057",
+  "sorted_processes" : [ "HV8zvz1VtaTJS5_NZtHQc$$w9fPXTrOAuJt79vjYuCLl", "sudou1KSuIH8kZAIprBx2$$L8pobVYKMO_7VdHhxu2S7" ]
 }

@@ -1,0 +1,2206 @@
+{
+  "metainfo" : {
+    "migrationVersions" : {
+      "gemBuilderVersion" : "v1"
+    },
+    "codeGenConfiguration" : {
+      "editableConfig" : true,
+      "plibVersion" : {
+        "mavenVersion" : "7.1.95",
+        "pyPiVersion" : "1.8.15"
+      }
+    },
+    "id" : "1",
+    "uri" : "pipelines/demo",
+    "pipelineSettingsInfo" : {
+      "applicationName" : "demo",
+      "hasApplication" : true
+    },
+    "language" : "python",
+    "fabricId" : "9664",
+    "frontEndLanguage" : "sql",
+    "mode" : "batch",
+    "udfs" : {
+      "language" : "python",
+      "udfs" : [ ],
+      "functionPackageName" : "bobwprophecyioteam.financialcrimes.functions",
+      "sharedFunctionPackageNames" : [ "prophecy.spark_basic.functions", "prophecy.warehouse.functions" ]
+    },
+    "udafs" : {
+      "language" : "python",
+      "code" : ""
+    },
+    "configuration" : {
+      "common" : {
+        "type" : "record",
+        "fields" : [ {
+          "name" : "risk_scoring",
+          "kind" : {
+            "type" : "record",
+            "fields" : [ ]
+          },
+          "optional" : false,
+          "isWorkflowNodeConfiguration" : true,
+          "isReferenced" : false
+        } ]
+      },
+      "oldCommon" : {
+        "type" : "record",
+        "fields" : [ ]
+      },
+      "fabrics" : { },
+      "instances" : { },
+      "selected" : "default",
+      "nonEditable" : [ ],
+      "isSubscribedPipelineWithPipelineConfigs" : false
+    },
+    "sparkConf" : [ ],
+    "hadoopConf" : [ ],
+    "codeMode" : "sparse",
+    "buildSystem" : "maven",
+    "externalDependencies" : [ ],
+    "dependentProjectExternalDependencies" : [ ],
+    "isImported" : false,
+    "interimMode" : "Full",
+    "interimModeEnabled" : true,
+    "visualCodeInterimMode" : "Disabled",
+    "recordsLimit" : {
+      "enabled" : false,
+      "value" : 1000
+    },
+    "topLevelPackage" : "demo",
+    "configurationVersion" : "v2"
+  },
+  "connections" : [ {
+    "id" : "epeAl2kO",
+    "source" : "rhTEFnit",
+    "sourcePort" : "Wp46s2Jo",
+    "target" : "IN8I0Yjm",
+    "targetPort" : "rHXI1mB5"
+  }, {
+    "id" : "yjOlbN4c",
+    "source" : "IN8I0Yjm",
+    "sourcePort" : "XAI8frxd",
+    "target" : "qz35GxvT",
+    "targetPort" : "QfU67O50"
+  }, {
+    "id" : "fLEZqB2F",
+    "source" : "pQWaflKn",
+    "sourcePort" : "nlaFpSzE",
+    "target" : "rhTEFnit",
+    "targetPort" : "vYVoLoWj"
+  }, {
+    "id" : "ITs7ZJFv",
+    "source" : "WaMOs9vW",
+    "sourcePort" : "EfFp4GVa",
+    "target" : "pQWaflKn",
+    "targetPort" : "MR0hOi2d"
+  }, {
+    "id" : "QPKoEPjM",
+    "source" : "uMDrgjYP",
+    "sourcePort" : "xruJzjTd",
+    "target" : "pQWaflKn",
+    "targetPort" : "nElABDL4"
+  }, {
+    "id" : "fD1liIt1",
+    "source" : "QvVWh7iF",
+    "sourcePort" : "FRH9tMlI",
+    "target" : "pQWaflKn",
+    "targetPort" : "GXgQ1AgD"
+  }, {
+    "id" : "64KOix4rHjiIFcpDoAG3r$$U8ziVdHXPVJAsxo6b4baM",
+    "source" : "pQWaflKn",
+    "sourcePort" : "nlaFpSzE",
+    "target" : "VPBuoHLyFcqcIEpRaIUlh$$KgUaC4LjUHRgtdoUIVgMb",
+    "targetPort" : "G5iiLLdl4WKjaky3CU5vm$$sTVK0WjZHnjuXLU4T1YHy"
+  }, {
+    "id" : "greXQfraxWA_k9wvKyBcZ",
+    "source" : "pQWaflKn",
+    "sourcePort" : "nlaFpSzE",
+    "target" : "UNgG2aL8myYca-ZC9FdYa$$lhLtoGwuDR7l2qfcpeLYK",
+    "targetPort" : "X09DyMXxXjh4-ijAeSTjW$$du4ECcEQxrWLLOLNMTxzC"
+  } ],
+  "processes" : {
+    "uMDrgjYP" : {
+      "id" : "uMDrgjYP",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "ds_country_watchlist",
+        "slug" : "ds_country_watchlist",
+        "x" : 20,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Loads a country watchlist dataset containing information about countries and associated issues related to financial crimes."
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "xruJzjTd",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/ds_country_watchlist"
+      }
+    },
+    "pQWaflKn" : {
+      "id" : "pQWaflKn",
+      "component" : "Join",
+      "metadata" : {
+        "label" : "transaction_details",
+        "slug" : "transaction_details",
+        "x" : 220,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Joins transaction data with country and person watchlists to identify flagged transactions."
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "MR0hOi2d",
+          "slug" : "all_scored_transx",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "transaction_id",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each wire transfer transaction.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "full_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "from_bank",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the bank from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "from_account_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "to_bank",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the bank to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "to_account_number",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "originating_country",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "destination_country",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "transaction_amount",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The monetary value of the wire transfer transaction.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "person_reason",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The reason for an individual being on the watchlist. It stores a string value that provides information about why the person is being monitored. This column is used to track potential risks or threats associated with each individual on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "source_country_issue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "target_country_issue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "person_flag",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "src_country_flag",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "tar_country_flag",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "transaction_flag",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "total_risk",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "nElABDL4",
+          "slug" : "ds_country_watchlist",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "country",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the country that is being monitored. This column stores values of string data type and provides information about the country that is being watched for any potential issues or concerns.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "issue",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        }, {
+          "id" : "GXgQ1AgD",
+          "slug" : "ds_person_watchlist",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "full_name",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The complete name of an individual on the watchlist. This column stores the first name and last name of each person and is of string data type. It provides a way to uniquely identify each person on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "reason",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The reason for an individual being on the watchlist. It stores a string value that provides information about why the person is being monitored. This column is used to track potential risks or threats associated with each individual on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "nlaFpSzE",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "conditions" : [ {
+          "alias" : "ds_country_watchlist",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.originating_country = ds_country_watchlist.country"
+          },
+          "joinType" : "inner"
+        }, {
+          "alias" : "ds_person_watchlist",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.full_name = ds_person_watchlist.full_name"
+          },
+          "joinType" : "inner"
+        } ],
+        "expressions" : [ {
+          "target" : "TRANSACTION_ID",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.transaction_id"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "FULL_NAME",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.full_name"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "FROM_BANK",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.from_bank"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "FROM_ACCOUNT_NUMBER",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.from_account_number"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "TO_BANK",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.to_bank"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "TO_ACCOUNT_NUMBER",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.to_account_number"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "ORIGINATING_COUNTRY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.originating_country"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "DESTINATION_COUNTRY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.destination_country"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "TRANSACTION_AMOUNT",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.transaction_amount"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "PERSON_REASON",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.person_reason"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "SOURCE_COUNTRY_ISSUE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.source_country_issue"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "TARGET_COUNTRY_ISSUE",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.target_country_issue"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "PERSON_FLAG",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.person_flag"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "SRC_COUNTRY_FLAG",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.src_country_flag"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "TAR_COUNTRY_FLAG",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.tar_country_flag"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "TRANSACTION_FLAG",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.transaction_flag"
+          },
+          "description" : "",
+          "_row_id" : null
+        }, {
+          "target" : "TOTAL_RISK",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "all_scored_transx.total_risk"
+          },
+          "description" : "",
+          "_row_id" : null
+        } ],
+        "hints" : [ {
+          "id" : "MR0hOi2d",
+          "alias" : "all_scored_transx",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "nElABDL4",
+          "alias" : "ds_country_watchlist",
+          "hintType" : "none",
+          "propagateColumns" : false
+        }, {
+          "id" : "GXgQ1AgD",
+          "alias" : "ds_person_watchlist",
+          "hintType" : "none",
+          "propagateColumns" : false
+        } ],
+        "allIn1" : null,
+        "activeTab" : "conditions",
+        "columnsSelector" : [ "MR0hOi2d##full_name", "MR0hOi2d##originating_country", "GXgQ1AgD##full_name", "nElABDL4##country", "MR0hOi2d##destination_country", "MR0hOi2d##transaction_flag", "MR0hOi2d##tar_country_flag", "MR0hOi2d##from_bank", "MR0hOi2d##source_country_issue", "MR0hOi2d##from_account_number", "MR0hOi2d##full_name", "MR0hOi2d##to_account_number", "MR0hOi2d##target_country_issue", "MR0hOi2d##originating_country", "MR0hOi2d##to_bank", "MR0hOi2d##person_reason", "MR0hOi2d##total_risk", "MR0hOi2d##src_country_flag", "MR0hOi2d##person_flag", "MR0hOi2d##transaction_id", "MR0hOi2d##transaction_amount" ],
+        "allIn0" : null,
+        "whereClause" : null,
+        "headAlias" : "all_scored_transx"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.12&projectSubscriptionProjectId=12654&path=gems/Join",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "QvVWh7iF" : {
+      "id" : "QvVWh7iF",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "ds_person_watchlist",
+        "slug" : "ds_person_watchlist",
+        "x" : 20,
+        "y" : 420,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Extracts originating and destination countries from transaction details."
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "FRH9tMlI",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/ds_person_watchlist"
+      }
+    },
+    "rhTEFnit" : {
+      "id" : "rhTEFnit",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "transaction_details_1",
+        "slug" : "transaction_details_1",
+        "x" : 420,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Could not generate description."
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "vYVoLoWj",
+          "slug" : "transaction_details",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "TRANSACTION_ID",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each wire transfer transaction.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FULL_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FROM_BANK",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the bank from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FROM_ACCOUNT_NUMBER",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TO_BANK",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the bank to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TO_ACCOUNT_NUMBER",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ORIGINATING_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DESTINATION_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TRANSACTION_AMOUNT",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The monetary value of the wire transfer transaction.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PERSON_REASON",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The reason for an individual being on the watchlist. It stores a string value that provides information about why the person is being monitored. This column is used to track potential risks or threats associated with each individual on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SOURCE_COUNTRY_ISSUE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TARGET_COUNTRY_ISSUE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PERSON_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRC_COUNTRY_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TAR_COUNTRY_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TRANSACTION_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TOTAL_RISK",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "Wp46s2Jo",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ {
+          "target" : "ORIGINATING_COUNTRY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "ORIGINATING_COUNTRY"
+          },
+          "description" : ""
+        }, {
+          "target" : "DESTINATION_COUNTRY",
+          "expression" : {
+            "format" : "sql",
+            "expression" : "DESTINATION_COUNTRY"
+          },
+          "description" : ""
+        } ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ "vYVoLoWj##DESTINATION_COUNTRY", "vYVoLoWj##ORIGINATING_COUNTRY" ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.12&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "WaMOs9vW" : {
+      "id" : "WaMOs9vW",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "all_scored_transx",
+        "slug" : "all_scored_transx",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Loads a dataset containing all scored transactions with various attributes such as transaction ID, full name, banks involved, countries, transaction amount, and risk flags."
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "EfFp4GVa",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "datasetId" : "datasets/all_scored_transx"
+      }
+    },
+    "UNgG2aL8myYca-ZC9FdYa$$lhLtoGwuDR7l2qfcpeLYK" : {
+      "id" : "UNgG2aL8myYca-ZC9FdYa$$lhLtoGwuDR7l2qfcpeLYK",
+      "component" : "Reformat",
+      "metadata" : {
+        "label" : "Reformat_1",
+        "slug" : "Reformat_1",
+        "x" : 400,
+        "y" : 40,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Returns the input DataFrame without any modifications."
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "X09DyMXxXjh4-ijAeSTjW$$du4ECcEQxrWLLOLNMTxzC",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "TRANSACTION_ID",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each wire transfer transaction.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FULL_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FROM_BANK",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the bank from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FROM_ACCOUNT_NUMBER",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TO_BANK",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the bank to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TO_ACCOUNT_NUMBER",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ORIGINATING_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DESTINATION_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TRANSACTION_AMOUNT",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The monetary value of the wire transfer transaction.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PERSON_REASON",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The reason for an individual being on the watchlist. It stores a string value that provides information about why the person is being monitored. This column is used to track potential risks or threats associated with each individual on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SOURCE_COUNTRY_ISSUE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TARGET_COUNTRY_ISSUE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PERSON_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRC_COUNTRY_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TAR_COUNTRY_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TRANSACTION_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TOTAL_RISK",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "egDYJ5qWuVD5hq9vI86zy$$ZIdjVpMETDTPlN-eSzr1Q",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+        "expressions" : [ ],
+        "importString" : "",
+        "activeTab" : "expressions",
+        "columnsSelector" : [ ]
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.12&projectSubscriptionProjectId=12654&path=gems/Reformat",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "qz35GxvT" : {
+      "id" : "qz35GxvT",
+      "component" : "Limit",
+      "metadata" : {
+        "label" : "limit_10",
+        "slug" : "limit_10",
+        "x" : 820,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Limits the DataFrame to the first 10 rows."
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "QfU67O50",
+          "slug" : "group_by_origin_dest",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "ORIGINATING_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DESTINATION_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "mxurSX4d",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "limit" : "10"
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.12&projectSubscriptionProjectId=12654&path=gems/Limit",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    },
+    "VPBuoHLyFcqcIEpRaIUlh$$KgUaC4LjUHRgtdoUIVgMb" : {
+      "id" : "VPBuoHLyFcqcIEpRaIUlh$$KgUaC4LjUHRgtdoUIVgMb",
+      "component" : "Subgraph",
+      "metadata" : {
+        "label" : "risk_scoring",
+        "slug" : "risk_scoring",
+        "x" : 380,
+        "y" : 360,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "This pipeline graph provides a risk scoring functionality for financial transactions. It calculates risk flags based on various factors such as person reason, source country issue, target country issue, and transaction amount. The risk flags indicate the presence or absence of certain risk factors. The gem also calculates a total risk score by summing up the individual risk flags. The transactions are then sorted in descending order based on the total risk score, allowing businesses to prioritize and focus on high-risk transactions for further investigation and mitigation."
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "G5iiLLdl4WKjaky3CU5vm$$sTVK0WjZHnjuXLU4T1YHy",
+          "slug" : "in0",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "TRANSACTION_ID",
+              "type" : "long",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Unique identifier for each wire transfer transaction.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FULL_NAME",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FROM_BANK",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the bank from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "FROM_ACCOUNT_NUMBER",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TO_BANK",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Name of the bank to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TO_ACCOUNT_NUMBER",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "ORIGINATING_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DESTINATION_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TRANSACTION_AMOUNT",
+              "type" : "double",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The monetary value of the wire transfer transaction.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PERSON_REASON",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "The reason for an individual being on the watchlist. It stores a string value that provides information about why the person is being monitored. This column is used to track potential risks or threats associated with each individual on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SOURCE_COUNTRY_ISSUE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TARGET_COUNTRY_ISSUE",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "PERSON_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "SRC_COUNTRY_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TAR_COUNTRY_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TRANSACTION_FLAG",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "TOTAL_RISK",
+              "type" : "integer",
+              "nullable" : false,
+              "metadata" : {
+                "description" : "",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "6L0A22LoG-lT95OIgcJfC$$aO1Mt_ZHa1D-3YZDp1rnF",
+          "slug" : "out"
+        }, {
+          "id" : "AOknGGEeu897QfaMd00Rm$$gk4Vr8xDUZDhmqZ9Vdspf",
+          "slug" : "out0"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "packageName" : "risk_scoring",
+        "externalId" : "subgraphs/risk_scoring",
+        "name" : "risk_scoring"
+      },
+      "connections" : [ {
+        "id" : "GrA3yCcABoP9tzZFwB6-i",
+        "source" : "ynCWQlA_bPNJGMgxh4Gbs$$i-F2_AzF-u052fzIuckOb",
+        "sourcePort" : "J5O8N6fcBSgQOHhPteEfs$$oObIs2hTqY1ppjWR62_g5",
+        "target" : "sK930vaH3sF7Fdlvnm5F7$$KxpLcAczJhWlECZN05Gd6",
+        "targetPort" : "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-"
+      }, {
+        "id" : "ug3CLYXVoC704m0pITt80",
+        "source" : "sK930vaH3sF7Fdlvnm5F7$$KxpLcAczJhWlECZN05Gd6",
+        "sourcePort" : "dTYbAd4ShZJq667VRFT5i$$TrCxBX3-hzsjoG8ILi4Uo",
+        "target" : "RuKIQjQTxCHN3Js3UJQa0$$DJQxTUNDpEAc3m6aCBmqM",
+        "targetPort" : "r2c99Kn9l48JNJ6xMEM5u$$d24KW2MXRsd-MtSpCg-7K"
+      }, {
+        "id" : "Rhs_6jofdrwUZJ5DKD93t",
+        "source" : "VPBuoHLyFcqcIEpRaIUlh$$KgUaC4LjUHRgtdoUIVgMb",
+        "sourcePort" : "G5iiLLdl4WKjaky3CU5vm$$sTVK0WjZHnjuXLU4T1YHy",
+        "target" : "ynCWQlA_bPNJGMgxh4Gbs$$i-F2_AzF-u052fzIuckOb",
+        "targetPort" : "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR"
+      }, {
+        "id" : "lLntVnvUtiRqRExTdPxO2",
+        "source" : "RuKIQjQTxCHN3Js3UJQa0$$DJQxTUNDpEAc3m6aCBmqM",
+        "sourcePort" : "ENzTXUOvgRoAXFCetB1OG$$jAdUvpcxaJ--uP1AtrVuZ",
+        "target" : "VPBuoHLyFcqcIEpRaIUlh$$KgUaC4LjUHRgtdoUIVgMb",
+        "targetPort" : "6L0A22LoG-lT95OIgcJfC$$aO1Mt_ZHa1D-3YZDp1rnF"
+      }, {
+        "id" : "4ypUGQITaUMtNiapb7m1_",
+        "source" : "RuKIQjQTxCHN3Js3UJQa0$$DJQxTUNDpEAc3m6aCBmqM",
+        "sourcePort" : "ENzTXUOvgRoAXFCetB1OG$$jAdUvpcxaJ--uP1AtrVuZ",
+        "target" : "VPBuoHLyFcqcIEpRaIUlh$$KgUaC4LjUHRgtdoUIVgMb",
+        "targetPort" : "AOknGGEeu897QfaMd00Rm$$gk4Vr8xDUZDhmqZ9Vdspf"
+      } ],
+      "processes" : {
+        "RuKIQjQTxCHN3Js3UJQa0$$DJQxTUNDpEAc3m6aCBmqM" : {
+          "id" : "RuKIQjQTxCHN3Js3UJQa0$$DJQxTUNDpEAc3m6aCBmqM",
+          "component" : "OrderBy",
+          "metadata" : {
+            "label" : "sort_risk_score",
+            "slug" : "sort_risk_score",
+            "x" : 1520,
+            "y" : 420,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "r2c99Kn9l48JNJ6xMEM5u$$d24KW2MXRsd-MtSpCg-7K",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "transaction_id",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Unique identifier for each wire transfer transaction.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "full_name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "from_bank",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Name of the bank from which the wire transfer originates.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "from_account_number",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "to_bank",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Name of the bank to which the wire transfer is sent.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "to_account_number",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "originating_country",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Country from which the wire transfer originates.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "destination_country",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Country to which the wire transfer is sent.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "transaction_amount",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The monetary value of the wire transfer transaction.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "person_reason",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The reason for an individual being on the watchlist. It stores a string value that provides information about why the person is being monitored. This column is used to track potential risks or threats associated with each individual on the watchlist.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "source_country_issue",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "target_country_issue",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "person_flag",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "src_country_flag",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "tar_country_flag",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "transaction_flag",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "total_risk",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "ENzTXUOvgRoAXFCetB1OG$$jAdUvpcxaJ--uP1AtrVuZ",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "columnsSelector" : [ "r2c99Kn9l48JNJ6xMEM5u$$d24KW2MXRsd-MtSpCg-7K$$c8kLk8oVymgitDRU2Q26z$$kPmcCK5bO2EjuX71J82pg$$ND-ceSgA6YSZZNKno9o_M$$f3-mtWgcY3AT-8D1O0H9T$$ke3WDMACf-7MIOHgHkd1W$$b1AevSG_vBwm6CLZCyB7v##total_risk" ],
+            "orders" : [ {
+              "expression" : {
+                "format" : "sql",
+                "expression" : "total_risk"
+              },
+              "sortType" : "desc"
+            } ]
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.12&projectSubscriptionProjectId=12654&path=gems/OrderBy",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        },
+        "ynCWQlA_bPNJGMgxh4Gbs$$i-F2_AzF-u052fzIuckOb" : {
+          "id" : "ynCWQlA_bPNJGMgxh4Gbs$$i-F2_AzF-u052fzIuckOb",
+          "component" : "Reformat",
+          "metadata" : {
+            "label" : "risk_flags",
+            "slug" : "risk_flags",
+            "x" : 1120,
+            "y" : 420,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "TRANSACTION_ID",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Unique identifier for each wire transfer transaction.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "FULL_NAME",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "FROM_BANK",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Name of the bank from which the wire transfer originates.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "FROM_ACCOUNT_NUMBER",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "TO_BANK",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Name of the bank to which the wire transfer is sent.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "TO_ACCOUNT_NUMBER",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "ORIGINATING_COUNTRY",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Country from which the wire transfer originates.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "DESTINATION_COUNTRY",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Country to which the wire transfer is sent.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "TRANSACTION_AMOUNT",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The monetary value of the wire transfer transaction.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "PERSON_REASON",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The reason for an individual being on the watchlist. It stores a string value that provides information about why the person is being monitored. This column is used to track potential risks or threats associated with each individual on the watchlist.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "SOURCE_COUNTRY_ISSUE",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "TARGET_COUNTRY_ISSUE",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "PERSON_FLAG",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "SRC_COUNTRY_FLAG",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "TAR_COUNTRY_FLAG",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "TRANSACTION_FLAG",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "TOTAL_RISK",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "J5O8N6fcBSgQOHhPteEfs$$oObIs2hTqY1ppjWR62_g5",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+            "expressions" : [ {
+              "target" : "transaction_id",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "transaction_id"
+              },
+              "description" : ""
+            }, {
+              "target" : "full_name",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "full_name"
+              },
+              "description" : ""
+            }, {
+              "target" : "from_bank",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "from_bank"
+              },
+              "description" : ""
+            }, {
+              "target" : "from_account_number",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "from_account_number"
+              },
+              "description" : ""
+            }, {
+              "target" : "to_bank",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "to_bank"
+              },
+              "description" : ""
+            }, {
+              "target" : "to_account_number",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "to_account_number"
+              },
+              "description" : ""
+            }, {
+              "target" : "originating_country",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "originating_country"
+              },
+              "description" : ""
+            }, {
+              "target" : "destination_country",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "destination_country"
+              },
+              "description" : ""
+            }, {
+              "target" : "transaction_amount",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "transaction_amount"
+              },
+              "description" : ""
+            }, {
+              "target" : "person_reason",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "person_reason"
+              },
+              "description" : ""
+            }, {
+              "target" : "source_country_issue",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "source_country_issue"
+              },
+              "description" : ""
+            }, {
+              "target" : "target_country_issue",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "target_country_issue"
+              },
+              "description" : ""
+            }, {
+              "target" : "person_flag",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "CASE WHEN (person_reason is null) THEN 0 ELSE 1 END"
+              },
+              "description" : ""
+            }, {
+              "target" : "src_country_flag",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "CASE WHEN isnull(source_country_issue) THEN 0 ELSE 1 END"
+              },
+              "description" : ""
+            }, {
+              "target" : "tar_country_flag",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "CASE WHEN isnull(target_country_issue) THEN 0 ELSE 1 END"
+              },
+              "description" : ""
+            }, {
+              "target" : "transaction_flag",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "CASE WHEN ((transaction_amount >= 5000) AND (transaction_amount < 10000)) THEN 1 ELSE 0 END"
+              },
+              "description" : ""
+            } ],
+            "importString" : "",
+            "activeTab" : "expressions",
+            "columnsSelector" : [ "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##transaction_id", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##from_account_number", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##person_reason", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##destination_country", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##originating_country", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##transaction_amount", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##full_name", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##to_account_number", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##to_bank", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##source_country_issue", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##target_country_issue", "XC5yxXZcFNiBrhETMW65I$$V7ThSIWOtECwvVjhDiZtR$$ZmhNTCXAUgPYYhADAlmcC$$NkUwpV5ULodbYHvOPCzYX$$CaJTArKenJikUobaW9POD$$EJodf0w521BLHI8jlrpNL$$47fiHWZw3i9YrLEhpUcIg$$EL0lM0EnwWM8QjSSVck-7##from_bank" ]
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.12&projectSubscriptionProjectId=12654&path=gems/Reformat",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        },
+        "sK930vaH3sF7Fdlvnm5F7$$KxpLcAczJhWlECZN05Gd6" : {
+          "id" : "sK930vaH3sF7Fdlvnm5F7$$KxpLcAczJhWlECZN05Gd6",
+          "component" : "Reformat",
+          "metadata" : {
+            "label" : "risk_score",
+            "slug" : "risk_score",
+            "x" : 1320,
+            "y" : 420,
+            "phase" : 0,
+            "cache" : false,
+            "detailedStats" : false,
+            "isImported" : false
+          },
+          "ports" : {
+            "inputs" : [ {
+              "id" : "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-",
+              "slug" : "in0",
+              "schema" : {
+                "type" : "struct",
+                "fields" : [ {
+                  "name" : "transaction_id",
+                  "type" : "long",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Unique identifier for each wire transfer transaction.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "full_name",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "from_bank",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Name of the bank from which the wire transfer originates.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "from_account_number",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Account number associated with the sender's bank account from which the wire transfer originates.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "to_bank",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Name of the bank to which the wire transfer is sent.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "to_account_number",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Account number associated with the recipient's bank account to which the wire transfer is sent.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "originating_country",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Country from which the wire transfer originates.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "destination_country",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Country to which the wire transfer is sent.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "transaction_amount",
+                  "type" : "double",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The monetary value of the wire transfer transaction.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "person_reason",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "The reason for an individual being on the watchlist. It stores a string value that provides information about why the person is being monitored. This column is used to track potential risks or threats associated with each individual on the watchlist.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "source_country_issue",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "target_country_issue",
+                  "type" : "string",
+                  "nullable" : true,
+                  "metadata" : {
+                    "description" : "Describes the specific issue or concern related to a particular country. The values in this column are of string data type and provide information on the reason why a country is on the watchlist.",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "person_flag",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "src_country_flag",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "tar_country_flag",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                }, {
+                  "name" : "transaction_flag",
+                  "type" : "integer",
+                  "nullable" : false,
+                  "metadata" : {
+                    "description" : "",
+                    "mappings" : [ ],
+                    "tags" : [ ]
+                  }
+                } ]
+              },
+              "isStreaming" : false
+            } ],
+            "outputs" : [ {
+              "id" : "dTYbAd4ShZJq667VRFT5i$$TrCxBX3-hzsjoG8ILi4Uo",
+              "slug" : "out"
+            } ],
+            "selectedInputFields" : [ ],
+            "isCustomOutputSchema" : false,
+            "autoUpdateOnRun" : false
+          },
+          "properties" : {
+            "importLanguage" : "${$.workflow.metainfo.frontEndLanguage}",
+            "expressions" : [ {
+              "target" : "transaction_id",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "transaction_id"
+              },
+              "description" : ""
+            }, {
+              "target" : "full_name",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "full_name"
+              },
+              "description" : ""
+            }, {
+              "target" : "from_bank",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "from_bank"
+              },
+              "description" : ""
+            }, {
+              "target" : "from_account_number",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "from_account_number"
+              },
+              "description" : ""
+            }, {
+              "target" : "to_bank",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "to_bank"
+              },
+              "description" : ""
+            }, {
+              "target" : "to_account_number",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "to_account_number"
+              },
+              "description" : ""
+            }, {
+              "target" : "originating_country",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "originating_country"
+              },
+              "description" : ""
+            }, {
+              "target" : "destination_country",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "destination_country"
+              },
+              "description" : ""
+            }, {
+              "target" : "transaction_amount",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "transaction_amount"
+              },
+              "description" : ""
+            }, {
+              "target" : "person_reason",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "person_reason"
+              },
+              "description" : ""
+            }, {
+              "target" : "source_country_issue",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "source_country_issue"
+              },
+              "description" : ""
+            }, {
+              "target" : "target_country_issue",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "target_country_issue"
+              },
+              "description" : ""
+            }, {
+              "target" : "person_flag",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "person_flag"
+              },
+              "description" : ""
+            }, {
+              "target" : "src_country_flag",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "src_country_flag"
+              },
+              "description" : ""
+            }, {
+              "target" : "tar_country_flag",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "tar_country_flag"
+              },
+              "description" : ""
+            }, {
+              "target" : "transaction_flag",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "transaction_flag"
+              },
+              "description" : ""
+            }, {
+              "target" : "total_risk",
+              "expression" : {
+                "format" : "sql",
+                "expression" : "person_flag + src_country_flag + tar_country_flag + transaction_flag"
+              },
+              "description" : ""
+            } ],
+            "importString" : "",
+            "activeTab" : "expressions",
+            "columnsSelector" : [ "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##originating_country", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##src_country_flag", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##transaction_flag", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##source_country_issue", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##target_country_issue", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##transaction_amount", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##from_account_number", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##tar_country_flag", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##to_account_number", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##person_reason", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##destination_country", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##transaction_id", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##to_bank", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##from_bank", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##person_flag", "rGzfWVktLocFVE5rTQ7Gx$$MLIDRmLfxJ-tM-iVS1Os-$$8uPux0-Ao5lxBhHR5lyaz$$TM_f-iM4lPLNG7qADeVZn$$12SxaNXSj0lIzICjOQuK0$$UOjf3_5vAo6JfvRQZ2kR9$$Qv8TC8M31FpmC7Z6dI1d6##full_name" ]
+          },
+          "componentInfo" : {
+            "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.12&projectSubscriptionProjectId=12654&path=gems/Reformat",
+            "projectName" : "ProphecySparkBasicsPython"
+          }
+        }
+      }
+    },
+    "IN8I0Yjm" : {
+      "id" : "IN8I0Yjm",
+      "component" : "Deduplicate",
+      "metadata" : {
+        "label" : "group_by_origin_dest",
+        "slug" : "group_by_origin_dest",
+        "x" : 620,
+        "y" : 220,
+        "phase" : 0,
+        "cache" : false,
+        "detailedStats" : false,
+        "isImported" : false,
+        "comment" : "Removes duplicate rows from the DataFrame based on all columns."
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "rHXI1mB5",
+          "slug" : "transaction_details_1",
+          "schema" : {
+            "type" : "struct",
+            "fields" : [ {
+              "name" : "ORIGINATING_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country from which the wire transfer originates.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            }, {
+              "name" : "DESTINATION_COUNTRY",
+              "type" : "string",
+              "nullable" : true,
+              "metadata" : {
+                "description" : "Country to which the wire transfer is sent.",
+                "mappings" : [ ],
+                "tags" : [ ]
+              }
+            } ]
+          },
+          "isStreaming" : false
+        } ],
+        "outputs" : [ {
+          "id" : "XAI8frxd",
+          "slug" : "out"
+        } ],
+        "selectedInputFields" : [ ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      },
+      "properties" : {
+        "dedupColumns" : [ {
+          "colName" : "ORIGINATING_COUNTRY"
+        }, {
+          "colName" : "DESTINATION_COUNTRY"
+        } ],
+        "dedupType" : "distinct",
+        "columnsSelector" : [ "rHXI1mB5##ORIGINATING_COUNTRY", "rHXI1mB5##DESTINATION_COUNTRY" ],
+        "orders" : [ ],
+        "useOrderBy" : false
+      },
+      "componentInfo" : {
+        "gemId" : "gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=&tag=0.2.12&projectSubscriptionProjectId=12654&path=gems/Deduplicate",
+        "projectName" : "ProphecySparkBasicsPython"
+      }
+    }
+  },
+  "ports" : {
+    "inputs" : [ ],
+    "outputs" : [ ],
+    "selectedInputFields" : [ ],
+    "isCustomOutputSchema" : false,
+    "autoUpdateOnRun" : false
+  }
+}

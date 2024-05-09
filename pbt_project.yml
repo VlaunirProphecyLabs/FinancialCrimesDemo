@@ -14,6 +14,34 @@ buildSystemDetails:
 pipelines:
   pipelines/pipe_financial_crimes:
     name: pipe_financial_crimes
+    description: This pipeline graph provides a comprehensive solution for detecting
+      and flagging potential financial crimes in wire transfer transactions. It combines
+      multiple data sources, including transaction details, individual watchlist,
+      and country watchlist, to identify and assess risks associated with each transaction.
+      The process involves joining the transaction data with the watchlist information
+      based on full name, originating country, and destination country. The flagged
+      transactions are then filtered based on a risk threshold and sorted in descending
+      order of total risk score. The final result provides a prioritized list of potentially
+      risky transactions for further investigation and action.
+    author: bobw@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-02-14 17:00:07'
+    datasets:
+      inputs:
+      - datasets/ds_country_watchlist
+      - datasets/ds_person_watchlist
+      - datasets/table_wire_transfer
+      outputs:
+      - datasets/all_scored_transx
+      - datasets/flagged_transactions
+      - datasets/table_all_transx_scored
+    subgraphs:
+    - subgraphs/risk_scoring
+    dependencies: {}
+  pipelines/pipe_financial_crimes_final:
+    name: pipe_financial_crimes_final
     description: This codebase provides a solution for detecting financial crimes
       by analyzing wire transfer transactions. It reads in data from multiple sources,
       including a wire transfer table, individual watchlist, and country watchlist.
@@ -31,7 +59,7 @@ pipelines:
     mode: batch
     artefactID: ''
     language: python
-    createdAt: '2024-02-14 17:00:07'
+    createdAt: '2024-05-06 21:05:12'
     datasets:
       inputs:
       - datasets/ds_country_watchlist
@@ -41,6 +69,36 @@ pipelines:
       - datasets/all_scored_transx
       - datasets/flagged_transactions
       - datasets/table_all_transx_scored
+    subgraphs:
+    - subgraphs/risk_scoring
+    dependencies: {}
+  pipelines/demo:
+    name: demo
+    description: This pipeline graph provides functions for analyzing and flagging
+      potentially risky financial transactions. It takes in transaction data, country
+      watchlist data, and individual watchlist data as inputs. The `transaction_details`
+      function joins the transaction data with the country watchlist data based on
+      the originating country, and selects relevant columns for further analysis.
+      The `transaction_details_1` function selects the originating and destination
+      countries from the transaction details. The `Reformat_1` function does not modify
+      the input data. The `group_by_origin_dest` function removes duplicate rows from
+      the transaction details. The `limit_10` function limits the output to the top
+      10 rows. The `risk_flags` function adds flags to indicate potential risks based
+      on certain conditions, such as missing person reasons or country issues. The
+      `risk_score` function calculates a total risk score by summing up the individual
+      flags. The `sort_risk_score` function sorts the data based on the total risk
+      score in descending order.
+    author: vlaunir@prophecy.io
+    mode: batch
+    artefactID: ''
+    language: python
+    createdAt: '2024-05-09 13:40:51'
+    datasets:
+      inputs:
+      - datasets/all_scored_transx
+      - datasets/ds_country_watchlist
+      - datasets/ds_person_watchlist
+      outputs: []
     subgraphs:
     - subgraphs/risk_scoring
     dependencies: {}
@@ -128,16 +186,55 @@ datasets:
         description: ''
         author: bobw@prophecy.io
         createdAt: '2024-02-21 15:53:12'
+  datasets/entities:
+    name: entities
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-05-06 21:38:50'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: File
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-05-06 21:38:50'
+  datasets/all_transactions:
+    name: wire_transfers
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-05-09 14:01:05'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: Database
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-05-09 14:01:05'
+  datasets/new_ds_wire_transf:
+    name: new_ds_wire_transf
+    description: ''
+    author: vlaunir@prophecy.io
+    createdAt: '2024-05-09 16:17:54'
+    mode: batch
+    physicalDatasets:
+      Dev:
+        fabricId: 9664
+        datasetType: Database
+        description: ''
+        author: vlaunir@prophecy.io
+        createdAt: '2024-05-09 16:17:54'
 templates: {}
 jobs:
   jobs/job_fin_crimes:
     name: job_fin_crimes
     description: ''
-    fabricUID: 9631
+    fabricUID: 9664
     scheduler:
       Databricks: {}
     cloudProvider: null
-    jobSize: small
+    jobSize: Small
     scheduleCron: 0 0 0 1 1 ? *
     timeout: null
     alerting:
@@ -145,38 +242,13 @@ jobs:
       onStart: false
       onSuccess: true
       onFailure: true
-    pipelines:
-    - pipelines/pipe_financial_crimes
+    pipelines: []
     jobClusterMode:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: null
+    enabled: false
     createdAt: '2024-02-20 18:22:09'
-    author: bobw@prophecy.io
-  jobs/job_fincrimes_airflow:
-    name: job_fincrimes_airflow
-    description: ''
-    fabricUID: 9770
-    scheduler:
-      Prophecy: {}
-    cloudProvider: null
-    jobSize: null
-    scheduleCron: None
-    timeout: null
-    alerting:
-      emails: ''
-      onStart: false
-      onSuccess: false
-      onFailure: false
-    pipelines:
-    - pipelines/pipe_financial_crimes
-    jobClusterMode:
-      clusterMode:
-        Single: {}
-      clusterId: null
-    enabled: null
-    createdAt: '2024-02-20 19:49:37'
     author: bobw@prophecy.io
 gemContainer:
   languageVersion: '3.10'
@@ -209,26 +281,26 @@ sqlUnreferencedSources: {}
 sqlPipeline: null
 dependencies:
 - type: plibMaven
-  modifiedAt: '2024-04-30T17:27:11.199692Z'
+  modifiedAt: '2024-05-09T13:40:58.499649Z'
   name: plibMaven
-  version: 7.1.93
-  id: '1478506883'
-  createdAt: '2024-04-30T17:27:11.199615Z'
+  version: 7.1.95
+  id: '660056382'
+  createdAt: '2024-05-09T13:40:58.499515Z'
 - type: plibPypi
-  modifiedAt: '2024-04-30T17:27:11.199791Z'
+  modifiedAt: '2024-05-09T13:40:58.499748Z'
   name: plibPypi
   version: 1.8.15
-  id: '1523795269'
-  createdAt: '2024-04-30T17:27:11.199744Z'
+  id: '1718551502'
+  createdAt: '2024-05-09T13:40:58.499706Z'
 projectDependencies:
   '12654':
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.10
+    version: 0.2.12
     isDefault: true
     author: null
-    createdAt: '2024-04-30 17:27:25'
+    createdAt: '2024-05-06 20:28:47'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
