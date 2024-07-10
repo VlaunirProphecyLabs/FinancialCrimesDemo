@@ -1,6 +1,29 @@
 {
   "fabric_id" : "9664",
-  "components" : [ ],
+  "components" : [ {
+    "PipelineComponent" : {
+      "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pipe_financial_crimes_final-1.0-py3-none-any.whl",
+      "nodeName" : "pipe_financial_crimes_final",
+      "id" : "17WNJzkUVz01eDDDmgAUJ$$t3D2uHsjBqpEH6_3nms59",
+      "language" : "python",
+      "pipelineId" : "pipelines/pipe_financial_crimes_final"
+    }
+  }, {
+    "DLTPipelineComponent" : {
+      "id" : "x1PCTeHnguOQeCI4sceNW$$Xhgp95Iy12rcUwGCMIv8y",
+      "nodeName" : "DLTPipeline_1",
+      "language" : "python",
+      "content" : ""
+    }
+  }, {
+    "PipelineComponent" : {
+      "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pipe_financial_crimes-1.0-py3-none-any.whl",
+      "nodeName" : "pipe_financial_crimes",
+      "id" : "ALDB911mtGwqAFR9cfI3v$$2CTEfHjEsKxAlwHAOqgk8",
+      "language" : "python",
+      "pipelineId" : "pipelines/pipe_financial_crimes"
+    }
+  } ],
   "request" : {
     "format" : "MULTI_TASK",
     "name" : "job_fin_crimes",
@@ -22,7 +45,7 @@
           "spark.prophecy.metadata.is.interactive.run" : "false",
           "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
           "spark.prophecy.metadata.user.id" : "5087",
-          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKsgsSI1Py8xLzEvOTMyJTy7KzE0tVrICi+dk5qUW62NXUQsAZpnGpTsAAAA=",
+          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKsgsSI1Py8xLzEvOTMyJTy7KzE0tVrICi+dk5qUW62NXoYNdJ1ggh7B+qLpaAIvxfWuBAAAA",
           "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
           "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
           "spark.prophecy.execution.metrics.disabled" : "true",
@@ -41,12 +64,106 @@
         },
         "data_security_mode" : "SINGLE_USER"
       }
+    }, {
+      "job_cluster_key" : "Cluster_1",
+      "new_cluster" : {
+        "spark_version" : "14.3.x-scala2.12",
+        "node_type_id" : "i4i.xlarge",
+        "driver_node_type_id" : "i4i.large",
+        "num_workers" : 0,
+        "custom_tags" : {
+          "ResourceClass" : "SingleNode"
+        },
+        "enable_elastic_disk" : true,
+        "spark_conf" : {
+          "spark.databricks.cluster.profile" : "singleNode",
+          "spark.master" : "local[*, 4]",
+          "spark.prophecy.metadata.fabric.id" : "9664",
+          "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/job_fin_crimes",
+          "spark.prophecy.metadata.is.interactive.run" : "false",
+          "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
+          "spark.prophecy.metadata.user.id" : "5087",
+          "spark.prophecy.tasks" : "H4sIAAAAAAAAAKtWKsgsSI1Py8xLzEvOTMyJTy7KzE0tVrICi+dk5qUW62NXoYNdJ1ggh7B+qLpaAIvxfWuBAAAA",
+          "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
+          "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
+          "spark.prophecy.execution.metrics.disabled" : "true",
+          "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
+          "spark.databricks.isv.product" : "prophecy"
+        },
+        "spark_env_vars" : {
+          "SPARK_VERSION" : "3.2"
+        },
+        "cluster_source" : "API",
+        "runtime_engine" : "STANDARD",
+        "aws_attributes" : {
+          "first_on_demand" : 1,
+          "availability" : "SPOT_WITH_FALLBACK",
+          "zone_id" : "auto",
+          "spot_bid_price_percent" : 100
+        },
+        "data_security_mode" : "SINGLE_USER",
+        "enable_local_disk_encryption" : false
+      }
     } ],
     "email_notifications" : {
       "on_success" : [ "bobw@prophecy.io" ],
       "on_failure" : [ "bobw@prophecy.io" ]
     },
-    "tasks" : [ ],
+    "tasks" : [ {
+      "task_key" : "pipe_financial_crimes_final",
+      "job_cluster_key" : "job_fin_crimes_default_Small",
+      "python_wheel_task" : {
+        "package_name" : "pipe_financial_crimes_final",
+        "entry_point" : "main",
+        "parameters" : [ "-i", "default", "-O", "{}" ]
+      },
+      "libraries" : [ {
+        "maven" : {
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.5.0-8.0.11-1"
+        }
+      }, {
+        "pypi" : {
+          "package" : "prophecy-libs==1.9.7"
+        }
+      }, {
+        "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pipe_financial_crimes_final-1.0-py3-none-any.whl"
+      } ],
+      "email_notifications" : { },
+      "max_retries" : 0
+    }, {
+      "task_key" : "DLTPipeline_1",
+      "pipeline_task" : {
+        "pipeline_id" : "b130888b-c347-4df5-813f-6129e1951770"
+      },
+      "email_notifications" : { },
+      "max_retries" : 0
+    }, {
+      "task_key" : "pipe_financial_crimes",
+      "depends_on" : [ {
+        "task_key" : "pipe_financial_crimes_final"
+      }, {
+        "task_key" : "DLTPipeline_1"
+      } ],
+      "job_cluster_key" : "Cluster_1",
+      "python_wheel_task" : {
+        "package_name" : "pipe_financial_crimes",
+        "entry_point" : "main",
+        "parameters" : [ "-i", "default", "-O", "{}" ]
+      },
+      "libraries" : [ {
+        "maven" : {
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.5.0-8.0.11-1"
+        }
+      }, {
+        "pypi" : {
+          "package" : "prophecy-libs==1.9.7"
+        }
+      }, {
+        "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/pipe_financial_crimes-1.0-py3-none-any.whl"
+      } ],
+      "email_notifications" : { },
+      "max_retries" : 0
+    } ],
     "max_concurrent_runs" : 1,
     "schedule" : {
       "quartz_cron_expression" : "0 0 0 1 1 ? *",
@@ -59,5 +176,5 @@
     "clusterMode" : "Single"
   },
   "secret_scope" : "prophecy_jobs_7057",
-  "sorted_processes" : [ "HV8zvz1VtaTJS5_NZtHQc$$w9fPXTrOAuJt79vjYuCLl", "sudou1KSuIH8kZAIprBx2$$L8pobVYKMO_7VdHhxu2S7" ]
+  "sorted_processes" : [ "17WNJzkUVz01eDDDmgAUJ$$t3D2uHsjBqpEH6_3nms59", "x1PCTeHnguOQeCI4sceNW$$Xhgp95Iy12rcUwGCMIv8y", "ALDB911mtGwqAFR9cfI3v$$2CTEfHjEsKxAlwHAOqgk8" ]
 }

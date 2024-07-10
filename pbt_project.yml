@@ -94,18 +94,14 @@ pipelines:
     language: python
     createdAt: '2024-05-09 13:40:51'
     datasets:
-      inputs:
-      - datasets/all_scored_transx
-      - datasets/ds_country_watchlist
-      - datasets/ds_person_watchlist
+      inputs: []
       outputs: []
-    subgraphs:
-    - subgraphs/risk_scoring
+    subgraphs: []
     dependencies: {}
 datasets:
   datasets/ds_country_watchlist:
     name: ds_country_watchlist
-    description: ''
+    description: Country Watchlist
     author: bobw@prophecy.io
     createdAt: '2024-02-14 17:39:36'
     mode: batch
@@ -118,7 +114,7 @@ datasets:
         createdAt: '2024-02-14 17:39:36'
   datasets/ds_person_watchlist:
     name: ds_person_watchlist
-    description: ''
+    description: Person Watchlist
     author: bobw@prophecy.io
     createdAt: '2024-02-14 18:36:45'
     mode: batch
@@ -143,8 +139,8 @@ datasets:
         author: bobw@prophecy.io
         createdAt: '2024-02-15 21:02:29'
   datasets/all_scored_transx:
-    name: all_scored_transx
-    description: ''
+    name: transactions
+    description: 'all scored transactions '
     author: bobw@prophecy.io
     createdAt: '2024-02-15 21:11:31'
     mode: batch
@@ -242,7 +238,9 @@ jobs:
       onStart: false
       onSuccess: true
       onFailure: true
-    pipelines: []
+    pipelines:
+    - pipelines/pipe_financial_crimes
+    - pipelines/pipe_financial_crimes_final
     jobClusterMode:
       clusterMode:
         Single: {}
@@ -262,6 +260,7 @@ functions:
   udafs: {}
   expressions: {}
   airflowFunctions: {}
+  businessRules: {}
 subgraphs:
   subgraphs/risk_scoring:
     name: risk_scoring
@@ -274,6 +273,7 @@ subgraphs:
     createdAt: '2024-02-20 19:16:52'
 sqlModels: {}
 sqlSnapshots: {}
+sqlTests: {}
 sqlMacros: {}
 sqlSeeds: {}
 sqlSources: {}
@@ -283,32 +283,36 @@ dependencies:
 - type: plibMaven
   modifiedAt: '2024-05-09T13:40:58.499649Z'
   name: plibMaven
-  version: 7.1.95
+  version: 8.0.11-1
   id: '660056382'
   createdAt: '2024-05-09T13:40:58.499515Z'
+  enabled: true
+  entity: Project
 - type: plibPypi
   modifiedAt: '2024-05-09T13:40:58.499748Z'
   name: plibPypi
-  version: 1.8.15
+  version: 1.9.7
   id: '1718551502'
   createdAt: '2024-05-09T13:40:58.499706Z'
+  enabled: true
+  entity: Project
 projectDependencies:
   '12654':
     projectUID: 12654
     projectName: ProphecySparkBasicsPython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12654.git&subPath=
-    version: 0.2.12
+    version: 0.2.25
     isDefault: true
     author: null
-    createdAt: '2024-05-06 20:28:47'
+    createdAt: '2024-07-10 18:29:05'
   '12655':
     projectUID: 12655
     projectName: ProphecyWarehousePython
     repositoryPath: gitUri=http://gitserver:3000/DxEheDCJ_team_5751/DxEheDCJ_project_12655.git&subPath=
-    version: 0.0.5
+    version: 0.0.8
     isDefault: true
     author: null
-    createdAt: '2024-04-15 17:09:29'
+    createdAt: '2024-07-10 18:29:10'
 flags:
   shouldAddDefaultDependenciesIfAbsent: true
 pipelineConfigurations: {}

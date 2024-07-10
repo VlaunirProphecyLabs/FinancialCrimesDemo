@@ -57,6 +57,171 @@
     } ],
     "accessControlList" : [ ]
   },
-  "processes" : { },
-  "connections" : [ ]
+  "processes" : {
+    "ALDB911mtGwqAFR9cfI3v$$2CTEfHjEsKxAlwHAOqgk8" : {
+      "id" : "ALDB911mtGwqAFR9cfI3v$$2CTEfHjEsKxAlwHAOqgk8",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "pipe_financial_crimes",
+        "slug" : "pipe_financial_crimes",
+        "x" : 100,
+        "y" : 100
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "8uJmjwxMvh-u0QibQTVPW$$AiVif-DbGoCLgD8LPQXeT",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "gTNuAVkpVKQ9snxGrwzuC$$nzLDTDJjHWnl67I3TRvDg",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/pipe_financial_crimes",
+        "configurations" : {
+          "schema" : [ {
+            "name" : "risk_scoring",
+            "optional" : false,
+            "kind" : {
+              "type" : "record",
+              "fields" : [ ]
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : true
+          } ],
+          "instances" : {
+            "Financial_Security_and_Compliance" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      },
+      "parent" : "FTJW6Ws9mEZFPWai2vUAe"
+    },
+    "17WNJzkUVz01eDDDmgAUJ$$t3D2uHsjBqpEH6_3nms59" : {
+      "id" : "17WNJzkUVz01eDDDmgAUJ$$t3D2uHsjBqpEH6_3nms59",
+      "component" : "Pipeline",
+      "metadata" : {
+        "label" : "pipe_financial_crimes_final",
+        "slug" : "pipe_financial_crimes_final",
+        "x" : -580,
+        "y" : -280
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "bPW0PKa737m6YICQfnY0g$$O8LDI61zsRkacwCD-ouCD",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "6Wvy-ADDxbtaTBf7TAFQz$$3BDss9WN3F0yqklc5ZuVJ",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "pipelines/pipe_financial_crimes_final",
+        "configurations" : {
+          "schema" : [ {
+            "name" : "risk_scoring",
+            "optional" : false,
+            "kind" : {
+              "type" : "record",
+              "fields" : [ ]
+            },
+            "isReferenced" : false,
+            "isWorkflowNodeConfiguration" : true
+          } ],
+          "instances" : {
+            "Financial_Security_and_Compliance" : [ "default" ]
+          },
+          "overrides" : { },
+          "selectedInstance" : "default"
+        }
+      }
+    },
+    "x1PCTeHnguOQeCI4sceNW$$Xhgp95Iy12rcUwGCMIv8y" : {
+      "id" : "x1PCTeHnguOQeCI4sceNW$$Xhgp95Iy12rcUwGCMIv8y",
+      "component" : "DLTPipeline",
+      "metadata" : {
+        "label" : "DLTPipeline_1",
+        "slug" : "DLTPipeline_1",
+        "x" : -580,
+        "y" : -460
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "8_nbfl4IK7cma2Mz8rMzM$$19mzNmKrkJKLTOBgQ6xjh",
+          "slug" : ""
+        } ],
+        "outputs" : [ {
+          "id" : "g8oS2bOz45oX-VhzC9Qm5$$F29xW51h1nYi7vUWvioH_",
+          "slug" : ""
+        } ]
+      },
+      "settings" : {
+        "type" : "Inherited",
+        "alerting" : {
+          "emails" : "",
+          "onStart" : false,
+          "onSuccess" : false,
+          "onFailure" : false
+        }
+      },
+      "properties" : {
+        "pipelineId" : "",
+        "configurations" : { },
+        "dltPipelineId" : "b130888b-c347-4df5-813f-6129e1951770"
+      }
+    },
+    "FTJW6Ws9mEZFPWai2vUAe" : {
+      "id" : "FTJW6Ws9mEZFPWai2vUAe",
+      "component" : "Cluster",
+      "metadata" : {
+        "label" : "Cluster_1",
+        "slug" : "Cluster_1",
+        "x" : -420,
+        "y" : -400,
+        "width" : 280,
+        "height" : 280
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ ]
+      },
+      "properties" : {
+        "clusterSize" : "Medium"
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "14-cvosqAdYgOG4bz2SCe$$Glo2DwMvD1nKYDKRSWQwN",
+    "source" : "17WNJzkUVz01eDDDmgAUJ$$t3D2uHsjBqpEH6_3nms59",
+    "target" : "ALDB911mtGwqAFR9cfI3v$$2CTEfHjEsKxAlwHAOqgk8",
+    "sourcePort" : "6Wvy-ADDxbtaTBf7TAFQz$$3BDss9WN3F0yqklc5ZuVJ",
+    "targetPort" : "8uJmjwxMvh-u0QibQTVPW$$AiVif-DbGoCLgD8LPQXeT"
+  }, {
+    "id" : "YiJVekEJsM8q7DfbzgcXE",
+    "source" : "x1PCTeHnguOQeCI4sceNW$$Xhgp95Iy12rcUwGCMIv8y",
+    "target" : "ALDB911mtGwqAFR9cfI3v$$2CTEfHjEsKxAlwHAOqgk8",
+    "sourcePort" : "g8oS2bOz45oX-VhzC9Qm5$$F29xW51h1nYi7vUWvioH_",
+    "targetPort" : "8uJmjwxMvh-u0QibQTVPW$$AiVif-DbGoCLgD8LPQXeT"
+  } ]
 }
